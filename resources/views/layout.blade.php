@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silver</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="icon" href="https://www.simmonsfinejewelry.com/wp-content/uploads/2019/02/fav.png" type="image/gif" sizes="16x16">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/general.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/collection.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/theme.css') }}">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
 
 </head>
 
@@ -34,32 +42,32 @@
                                 <ul class="nav-menu-container__sub nav-menu-container__level-1">
                                     <li class="nav-menu-item active nav-menu-item__has-sub">
 
-                                        <a href="#">Bạc 925&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span><span class="fas fa-minus nav-menu-item__collapse"></span></a>
+                                        <a href="#">Bạc Ls&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span><span class="fas fa-minus nav-menu-item__collapse"></span></a>
 
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/nhan">Nhẫn</a>
+                                                <a href="/jewelry-silver/4">Nhẫn</a>
                                             </li>
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/bong-tai">Bông tai</a>
+                                                <a href="/jewelry-silver/2">Bông tai</a>
                                             </li>
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/lac-tay">Lắc tay</a>
+                                                <a href="/jewelry-silver/3">Lắc tay</a>
                                             </li>
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/lac-chan">Lắc chân</a>
+                                                <a href="/jewelry-silver/5">Lắc chân</a>
                                             </li>
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/kieng-tay">Kiềng tay</a>
+                                                <a href="/jewelry-silver/6">Kiềng tay</a>
                                             </li>
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/day-chuyen">Dây chuyền</a>
+                                                <a href="/jewelry-silver/1">Dây chuyền</a>
                                             </li>
 
                                         </ul>
@@ -284,7 +292,7 @@
     </header>
 
     <section class="main">
-        @yield('home')
+        @yield('content')
     </section>
 
     <footer class="footer-container" id="footer">
