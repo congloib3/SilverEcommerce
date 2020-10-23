@@ -26,4 +26,9 @@ class Product extends Model
     {
         return $this->belongsTo(\App\Models\Category::class, 'category_id');
     }
+
+    public function thumbnails()
+    {
+        return $this->hasMany(\App\Models\Thumbnail::class, 'product_id');
+    }
 }

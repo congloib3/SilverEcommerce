@@ -1,0 +1,117 @@
+.product-container.product-container__product {
+    position: relative; }
+    .product-container.product-container__product .product-action button {
+      margin-bottom: 2px; }
+    .product-container.product-container__product .product-block {
+      margin-bottom: 20px; }
+    .product-container.product-container__product .product-collection {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 24px; }
+      .product-container.product-container__product .product-collection a {
+        color: #898989;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        padding-left: 2px;
+        padding-right: 2px; }
+    .product-container.product-container__product .product-detail {
+      padding: 0 12px; }
+    .product-container.product-container__product .product-name {
+      color: #000000;
+      line-height: 1;
+      margin-bottom: 10px;
+      margin-top: 10px; }
+      .product-container.product-container__product .product-name a {
+        color: #000000;
+        font-size: 26px;
+        font-weight: 700;
+        text-decoration: none; }
+    .product-container.product-container__product .product-price {
+      line-height: 25px; }
+      .product-container.product-container__product .product-price .compare-price {
+        color: #898989;
+        font-size: 18px;
+        font-weight: 300; }
+      .product-container.product-container__product .product-price .discount-percent {
+        font-size: 18px;
+        font-weight: 300; }
+      .product-container.product-container__product .product-price .price {
+        color: #000000;
+        font-size: 21px;
+        font-weight: 900; }
+    .product-container.product-container__product .product-quantity input {
+      display: block;
+      text-align: center;
+      width: 50px; }
+    .product-container.product-container__product .product-quantity label {
+      display: block;
+      font-weight: normal;
+      text-transform: uppercase; }
+    .product-container.product-container__product .product-share {
+      font-size: 13px;
+      font-weight: 500; }
+      .product-container.product-container__product .product-share .share-icon {
+        color: #000000;
+        font-size: 25px; }
+    .product-container.product-container__product .product-type {
+      color: #898989;
+      font-size: 13px; }
+    .product-container.product-container__product .product-variants .selector-wrapper {
+      display: inline-block;
+      line-height: 18px;
+      padding-right: 10px; }
+      .product-container.product-container__product .product-variants .selector-wrapper input {
+        font-size: 14px; }
+      .product-container.product-container__product .product-variants .selector-wrapper label {
+        display: block;
+        font-size: 12px;
+        font-weight: normal;
+        text-transform: uppercase; }
+      .product-container.product-container__product .product-variants .selector-wrapper select {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        min-width: 125px;
+        text-transform: uppercase; }
+        .product-container.product-container__product .product-variants .selector-wrapper select option {
+          font-weight: 400;
+          padding-bottom: 4px;
+          padding-top: 4px; }
+    .product-container.product-container__product .product-preview__image {
+      height: auto;
+      width: 100%; }
+
+  @media (min-width: 768px) {
+    .product-container.product-container__product .product-detail {
+      padding: 0 12px 0 36px; } }
+
+  .product-tabs-container .product-tabs {
+    padding: 0 12px; }
+
+  .product-tabs-container .tabs {
+    border-bottom: 2px solid #bda47d; }
+    .product-tabs-container .tabs li {
+      display: inline-block;
+      float: left;
+      transition: all 0.5s;
+      -webkit-transition: background 0.5s;
+      font-weight: bold;
+      color: #53A1CC; }
+      .product-tabs-container .tabs li a {
+        cursor: pointer;
+        padding: 8px 12px !important;
+        text-transform: uppercase;
+        display: inline-block;
+        color: #000000; }
+      .product-tabs-container .tabs li a:active, .product-tabs-container .tabs li a:focus, .product-tabs-container .tabs li a:hover {
+        text-decoration: none; }
+    .product-tabs-container .tabs li.active,
+    .product-tabs-container .tabs li:hover {
+      background-color: #bda47d;
+      color: #000000; }
+      .product-tabs-container .tabs li.active a,
+      .product-tabs-container .tabs li:hover a {
+        color: #ffffff; }
+
+  .product-tabs-container .tabs-content {
+    padding: 10px; }

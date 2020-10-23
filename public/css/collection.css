@@ -1,3 +1,6 @@
+.product-action{
+    display: flex;
+}
 .collections-container {
     margin-bottom: 12px; }
     .collections-container .collection-item {

@@ -24,6 +24,8 @@ Route::get('/jewelry-silver', 'CategoryController@index');
 
 Route::get('/jewelry-silver/{id}', 'CategoryController@show');
 
+Route::resource('/products', 'ProductController');
+
 Route::get('/day-chuyen-bac-925-hanada-n34-n-x-s-380-0607-canh-canh-chim-xa-cu', function (){
     return view('pages.detail.detail');
 });
