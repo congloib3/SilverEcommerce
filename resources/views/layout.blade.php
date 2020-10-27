@@ -15,60 +15,38 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/general.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/collection.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/theme.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/product.css') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
 </head>
 
 <body>
-
     <header class="header-container" id="header">
         <div class="container-limitter">
             <div class="header-container-inner">
                 <div class="header-container__left">
                     <!--Dropdown menu-->
-                    <div style="display: none;" class="block-element display-mode__mobile display-mode__tablet mobile-navigator-container">
+                    <div class="block-element display-mode__mobile display-mode__tablet mobile-navigator-container">
                         <ul class="nav-menu-container">
-                            <li class="nav-menu-item"><a href="#"><span class="far fa-bars nav-menu-item__icon"></span></a></li>
+                            <li id="menu_show" class="nav-menu-item"><a href="#"><span class="far fa-bars nav-menu-item__icon"></span></a></li>
                         </ul>
                     </div>
                     <nav class="navigator-container">
                         <ul class="nav-menu-container">
                             <li class="nav-menu-item nav-menu-container__level-0"><a href="/">TRANG CHỦ</a></li>
-                            <li class="nav-menu-item nav-menu-container__level-0 nav-menu-item__has-sub">
-                                <a href="#">SẢN PHẨM<span class="fas fa-plus nav-menu-item__expand"></span><span class="fas fa-minus nav-menu-item__collapse"></span></a>
+                            <li id="product_show" class="nav-menu-item nav-menu-container__level-0 nav-menu-item__has-sub">
+                                <a href="#">SẢN PHẨM<span class="fas fa-plus nav-menu-item__expand"></span></a>
                                 <ul class="nav-menu-container__sub nav-menu-container__level-1">
                                     <li class="nav-menu-item active nav-menu-item__has-sub">
 
-                                        <a href="#">Bạc Ls&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span><span class="fas fa-minus nav-menu-item__collapse"></span></a>
+                                        <a href="#">Bạc Ls&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
 
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
-
+                                            @foreach($categories as $category)
                                             <li class="nav-menu-item">
-                                                <a href="/jewelry-silver/4">Nhẫn</a>
+                                                <a href="{{'/jewelry-silver/'.$category->id}}">{{$category->name}}</a>
                                             </li>
-
-                                            <li class="nav-menu-item">
-                                                <a href="/jewelry-silver/2">Bông tai</a>
-                                            </li>
-
-                                            <li class="nav-menu-item">
-                                                <a href="/jewelry-silver/3">Lắc tay</a>
-                                            </li>
-
-                                            <li class="nav-menu-item">
-                                                <a href="/jewelry-silver/5">Lắc chân</a>
-                                            </li>
-
-                                            <li class="nav-menu-item">
-                                                <a href="/jewelry-silver/6">Kiềng tay</a>
-                                            </li>
-
-                                            <li class="nav-menu-item">
-                                                <a href="/jewelry-silver/1">Dây chuyền</a>
-                                            </li>
-
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li class="nav-menu-item active nav-menu-item__has-sub">
@@ -78,23 +56,23 @@
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/nhan-cap">Nhẫn Cặp</a>
+                                                <a href="/nhan-cap">Nhẫn Cặp</a>
                                             </li>
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/me-va-be">Mẹ và Bé</a>
+                                                <a href="/me-va-be">Mẹ và Bé</a>
                                             </li>
 
                                         </ul>
                                     </li>
                                     <li class="nav-menu-item active nav-menu-item__has-sub">
 
-                                        <a href="#">Vàng&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span><span class="fas fa-minus nav-menu-item__collapse"></span></a>
+                                        <a href="#">Vàng&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
 
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
 
                                             <li class="nav-menu-item">
-                                                <a href="/collections/trang-suc-vang">Nhẫn Vàng</a>
+                                                <a href="/trang-suc-vang">Nhẫn Vàng</a>
                                             </li>
 
                                         </ul>
@@ -102,10 +80,10 @@
                                 </ul>
                             </li>
                             <li class="nav-menu-item nav-menu-container__level-0">
-                                <a href="/blogs/news">BLOG</a>
+                                <a href="/news">BLOG</a>
                             </li>
                             <li class="nav-menu-item nav-menu-container__level-0">
-                                <a href="/pages/lien-he">LIÊN HỆ</a>
+                                <a href="/lien-he">LIÊN HỆ</a>
                             </li>
                         </ul>
                     </nav>
@@ -114,7 +92,7 @@
                     <div class="user-navigation-container">
                         <ul class="user-menu-container">
                             <li class="user-menu-item">
-                                <a href="" class="user-menu-item__icon"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="/cart" class="user-menu-item__icon"><i class="fas fa-shopping-cart"></i></a>
                             </li>
                             <li class="user-menu-item">
                                 <a href="" class="user-menu-item__icon"><i class="fab fa-facebook"></i></a>
@@ -123,7 +101,7 @@
                                 <a href="" class="user-menu-item__icon"><i class="fab fa-instagram"></i></a>
                             </li>
                             <li class="user-menu-item">
-                                <a href="" class="user-menu-item__icon"><i class="fas fa-search"></i></a>
+                                <a href="" id="search_popup" class="user-menu-item__icon"><i class="fas fa-search"></i></a>
                             </li>
                             <li class="user-menu-item">
                                 <a href="" class="user-menu-item__icon"><i class="far fa-user"></i></a>
@@ -318,10 +296,53 @@
         </section>
     </footer>
 
+    <div id="search-box">
+        <div class="container">
+            <a class="close" href="#close"></a>
+            <div class="search-main">
+                <div class="search-inner">
+                    <input
+                        type="text"
+                        id="inputSearch"
+                        name="firstname"
+                        placeholder=""
+                    />
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="{{URL::asset('js/zoomsl.min.js')}}" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+
+        $("#menu_show").click(function(){
+            $(".navigator-container").toggle();
+        });
+        $("#product_show").click(function(){
+            $(".navigator-container .nav-menu-container__level-1").toggle();
+        });
+        $('#search_popup').click(function() {
+            event.preventDefault();
+            $("#search-box").addClass("-open");
+            setTimeout(function() {
+                inputSearch.focus();
+            }, 800);
+        });
+
+        $('a[href="#close"]').click(function() {
+            event.preventDefault();
+            $("#search-box").removeClass("-open");
+        });
+
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) {
+                $("#search-box").removeClass("-open");
+            }
+        });
+    </script>
 </body>
 
 </html>

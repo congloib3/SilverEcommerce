@@ -43,21 +43,21 @@
       @foreach($products as $product)
       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <div class="product-item product-item__grid">
-          <div data-id="product-1028367663" data-publish-date="">
+          <div >
             <div class="product-media">
               <div class="product-thumbnail">
                 <a
-                  href="/day-chuyen-bac-925-hanada-n34-n-x-s-380-0607-canh-canh-chim-xa-cu"
-                  title="Dây Chuyền Bạc 925 Hanada N34.N.X.S.380.0607 Cánh Cánh Chim Xà Cừ"
+                  href="/products/{{$product->id}}"
+                  title="{{$product->name}}"
                 >
                 </a>
 
                 <a
-                  href="/day-chuyen-bac-925-hanada-n34-n-x-s-380-0607-canh-canh-chim-xa-cu"
-                  title="Dây Chuyền Bạc 925 Hanada N34.N.X.S.380.0607 Cánh Cánh Chim Xà Cừ"
+                  href="/products/{{$product->id}}"
+                  title="{{$product->name}}"
                 >
                   <img
-                    class="product-thumbnail-image"
+                    class="/products/{{$product->id}}"
                     src="{{$product->image}}"
                     alt=""
                   />
@@ -75,7 +75,7 @@
             <div class="product-action">
               <a
                 href="javascript:void(0)"
-                data-id="day-chuyen-bac-925-hanada-n34-n-x-s-380-0607-canh-canh-chim-xa-cu"
+                data-id="products/{{$product->id}}"
                 class="awe-button product-quick-view btn-quickview"
                 data-toggle="tooltip"
                 data-placement="left"
@@ -103,8 +103,8 @@
             <div class="product-info">
               <h2 class="product-name">
                 <a
-                  href="/products/day-chuyen-bac-925-hanada-n34-n-x-s-380-0607-canh-canh-chim-xa-cu"
-                  title="Dây Chuyền Bạc 925 Hanada N34.N.X.S.380.0607 Cánh Cánh Chim Xà Cừ"
+                  href="/products/{{$product->id}}"
+                  title="{{$product->name}}"
               >{{$product->name}}</a
                 >
               </h2>
@@ -117,7 +117,7 @@
               </div>
               <a
                 class="ts-viewdetail"
-                href="/products/day-chuyen-bac-925-hanada-n34-n-x-s-380-0607-canh-canh-chim-xa-cu"
+                href="/products/{{$product->id}}"
                 ><span class="icon icon-arrows-slim-right"></span
               ></a>
             </div>

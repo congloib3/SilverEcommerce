@@ -34,8 +34,8 @@
                         <div class="product-media">
                             <div class="product-thumbnail">
 
-                                <a href="/products/lac-tay-bac-hanada-lac-unisex-moc-xich-ban-dep"
-                                    title="Lắc Tay Bạc 925 Hanada N1234.B.0.B250.0260 Lắc Unisex Móc Xích Bản Dẹp">
+                                <a href="/products/{{$product->id}}"
+                                    title="{{$product->name}}">
                                     <img class="product-thumbnail-image"
                                         src="{{$product->image}}"
                                         alt="">
@@ -61,15 +61,15 @@
 
                                 <a class="btn-select-option  product-add-cart" data-toggle="tooltip"
                                     data-placement="left" title="Ban het"
-                                    href="/products/lac-tay-bac-hanada-lac-unisex-moc-xich-ban-dep"><i
+                                    href="/products/{{$product->id}}"><i
                                         class="line addcart"></i></a>
 
                             </form>
                         </div>
                         <div class="product-info">
                             <h2 class="product-name">
-                                <a href="/products/lac-tay-bac-hanada-lac-unisex-moc-xich-ban-dep"
-                                    title="Lắc Tay Bạc 925 Hanada N1234.B.0.B250.0260 Lắc Unisex Móc Xích Bản Dẹp">{{$product->name}}</a>
+                                <a href="/products/{{$product->id}}"
+                                    title="{{$product->name}}">{{$product->name}}</a>
                             </h2>
                             <div class="product-price">
                                 <span class="price">
@@ -78,7 +78,7 @@
                                 <span class="compare-price"><del>(250,000₫)</del></span>
                             </div>
                             <a class="ts-viewdetail"
-                                href="/products/lac-tay-bac-hanada-lac-unisex-moc-xich-ban-dep"><span
+                                href="/products/{{$product->id}}"><span
                                     class="icon icon-arrows-slim-right"></span></a>
                         </div>
                     </div>

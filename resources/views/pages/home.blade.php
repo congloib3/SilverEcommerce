@@ -1,4 +1,4 @@
-@extends('layout', ['categories' => $categories])
+@extends('layout')
 @section('content')
 <div class="collections-container collections-container__index">
     <div class="container-limitter">

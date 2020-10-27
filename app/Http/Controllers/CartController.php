@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 
-class ProductController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::all();
-
-
-
-        return $products;
+        return view('pages.cart');
     }
 
     /**
@@ -52,16 +47,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
-        $product = Product::where('id', $id)->with('thumbnails', 'products')->first();
-
-        $related_products = Product::where('category_id', $product->category_id)->whereNotIn('id', [$product->id])->inRandomOrder()->take(10)->get();
-
-        return view('pages.detail')->with('product', $product)->with('related_products', $related_products);
     }
-    public function test($id){
-        $product = Product::where('id', $id)->with('thumbnails', 'products')->first();
-        return $product;
-    }
+
     /**
      * Show the form for editing the specified resource.
      *

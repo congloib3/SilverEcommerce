@@ -117,7 +117,7 @@
       .products-container .product-item.product-item__grid .product-status {
         display: block; }
         .products-container .product-item.product-item__grid .product-status.product-status__sale {
-          background-image: url("./icons.sale-tag.png");
+          background-image: url("https://theme.hstatic.net/1000103292/1000578902/14/icons.sale-tag.png");
           background-position: 0px 5px;
           height: 112px;
           width: 160px; }

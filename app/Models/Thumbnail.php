@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Thumbnail extends Model
 {
     //
-    public $table = 'thumbnail';
+    public $table = 'thumbnails';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

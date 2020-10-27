@@ -1,15 +1,13 @@
 @extends('layout') @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/product.css') }}">
 <section class="banner-container">
-  <div class="container-limitter">
-    <div class="main-logo">
-      <a href="/" title="Jewelry Silver Shop - Trang suc bac">
-        <img
-          alt="Jewelry Silver Shop - Trang suc bac"
-          src="//theme.hstatic.net/1000103292/1000578902/14/logo.png?v=573"
-        />
-      </a>
+    <div class="container-limitter">
+        <div class="main-logo">
+            <a href="/" title="My Shop - Trang suc bac">
+                <h1>Jewelry</h1>
+            </a>
+        </div>
     </div>
-  </div>
 </section>
 <section class="breadcrumb-container">
   <div class="container-limitter">
@@ -32,31 +30,18 @@
         <div class="top-section">
           <img
             class="big_img"
-            src="https://product.hstatic.net/1000103292/product/chg7119__3__4831d59bb7ce493e8f31e42f60cb503e.jpg"
+            src="{{$product->image}}"
             alt=""
           />
         </div>
         <div class="nav">
+          @foreach( $product->thumbnails as $thumbnail)
           <img
             class="small_img"
-            src="https://product.hstatic.net/1000103292/product/chg7119__3__4831d59bb7ce493e8f31e42f60cb503e.jpg"
+            src="{{$thumbnail->img_path}}"
             alt=""
           />
-          <img
-            class="small_img"
-            src="https://product.hstatic.net/1000103292/product/chg7119__5__3c90859cb99a4008af7d139a9c983cae.jpg"
-            alt=""
-          />
-          <img
-            class="small_img"
-            src="https://product.hstatic.net/1000103292/product/chg7119__2__472259c6f255422bb72d9710f1738ca2.jpg"
-            alt=""
-          />
-          <img
-            class="small_img"
-            src="https://product.hstatic.net/1000103292/product/chg7119__4__f9d18d888d8a4b1e86b7c780541f4f1b.jpg"
-            alt=""
-          />
+          @endforeach
         </div>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
@@ -66,15 +51,15 @@
               href="/products/bong-tai-bac-925-hanada-g7119-n34-e-2-s-220-0614-tron-da-giua"
               title=" Bông Tai Bạc 925 Jewelry Silver Shop N34.E.2.S.220.0614 Tròn Đá Giữa"
             >
-              Bông Tai Bạc 925 Jewelry Silver Shop N34.E.2.S.220.0614 Tròn Đá Giữa</a
+              {{$product->name}}</a
             >
           </h3>
           <div class="product-block product-type">
-            <span>Bông Tai</span>
+            <span>{{$product->products->name}}</span>
           </div>
           <div class="product-block product-price">
             <span class="price" id="price" data-variant-price="19800000"
-              >198,000₫</span
+              >{{number_format($product->price).'₫'}}</span
             >
 
             <span class="compare-price">
@@ -396,6 +381,114 @@
         </div>
       </div>
     </div>
+    <h2>Sản phẩm cùng danh mục</h2>
+    <div class="container">
+        <div class="carousel slide multi-item-carousel" data-ride="carousel" id="theCarousel">
+          <div class="carousel-inner row w-100 mx-auto">
+            @foreach ($related_products as $related_product)
+            <div class="carousel-item {{ $loop->first ? 'active' : '' }} col-md-4">
+                <section class="products-container products-container__collection">
+                    <div class="container-limitter">
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <div class="product-item product-item__grid">
+                            <div >
+                              <div class="product-media">
+                                <div class="product-thumbnail">
+                                  <a
+                                    href="/products/{{$related_product->id}}"
+                                    title="{{$related_product->name}}"
+                                  >
+                                  </a>
+
+                                  <a
+                                    href="/products/{{$related_product->id}}"
+                                    title="{{$related_product->name}}"
+                                  >
+                                    <img
+                                      class="/products/{{$related_product->id}}"
+                                      src="{{$related_product->image}}"
+                                      alt=""
+                                    />
+                                  </a>
+                                </div>
+                              </div>
+                              <div class="product-flag">
+                                <div
+                                  class="product-status product-status__new"
+                                  style="display: none;"
+                                ></div>
+
+                                <div class="product-status product-status__sale"></div>
+                              </div>
+                              <div class="product-action">
+                                <a
+                                  href="javascript:void(0)"
+                                  data-id="products/{{$related_product->id}}"
+                                  class="awe-button product-quick-view btn-quickview"
+                                  data-toggle="tooltip"
+                                  data-placement="left"
+                                  title="products.product.quickview"
+                                >
+                                  <i class="line quickview"></i>
+                                </a>
+                                <form
+                                  action="/cart/add"
+                                  method="post"
+                                  class="variants AddToCartForm-1028367663"
+                                  enctype="multipart/form-data"
+                                >
+                                  <input type="hidden" name="id" value="1062004568" />
+                                  <a
+                                    class="btn-addToCart  product-add-cart"
+                                    data-toggle="tooltip"
+                                    data-placement="left"
+                                    title="Them vao gio"
+                                    href="javascript:void(0)"
+                                    ><i class="line addcart"></i
+                                  ></a>
+                                </form>
+                              </div>
+                              <div class="product-info">
+                                <h2 class="product-name">
+                                  <a
+                                    href="/products/{{$related_product->id}}"
+                                    title="{{$related_product->name}}"
+                                >{{$related_product->name}}</a
+                                  >
+                                </h2>
+                                <div class="product-price">
+                                  <span class="price">
+                                    {{number_format($related_product->price)}}
+                                  </span>
+
+                                  <span class="compare-price"><del>(380,000₫)</del></span>
+                                </div>
+                                <a
+                                  class="ts-viewdetail"
+                                  href="/products/{{$related_product->id}}"
+                                  ><span class="icon icon-arrows-slim-right"></span
+                                ></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+            </div>
+            @endforeach
+          </div>
+          <a class="carousel-control-prev" href="#theCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#theCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
   </div>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -427,6 +520,21 @@
     }
     document.getElementById("defaultOpen").click();
 
+
+    $('.multi-item-carousel').on('slide.bs.carousel', function (e) {
+  let $e = $(e.relatedTarget),
+      itemsPerSlide = 3,
+      totalItems = $('.carousel-item', this).length,
+      $itemsContainer = $('.carousel-inner', this),
+      it = itemsPerSlide - (totalItems - $e.index());
+  if (it > 0) {
+    for (var i = 0; i < it; i++) {
+      $('.carousel-item', this).eq(e.direction == "left" ? i : 0).
+        // append slides to the end/beginning
+        appendTo($itemsContainer);
+    }
+  }
+});
   </script>
   @endsection
 </div>

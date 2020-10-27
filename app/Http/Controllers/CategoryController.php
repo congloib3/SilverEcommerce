@@ -19,9 +19,9 @@ class CategoryController extends Controller
         //
         $categories = Category::all();
 
-        $products = Product::where('status', 1)->orderBy('id', 'desc')->take(5)->get();
+        $products = Product::where('status', 1)->orderBy('id', 'desc')->take(8)->get();
 
-        return view('pages.silver.index')->with('categories', $categories)->with('products', $products);
+        return view('pages.silver')->with('categories', $categories)->with('products', $products);
 
     }
 
@@ -55,11 +55,11 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
-        $products = Product::where('category_id', $id)->orderBy('id', 'desc')->paginate(5);
+        $products = Product::where('category_id', $id)->orderBy('id', 'desc')->paginate(8);
 
         // $products;
 
-        return view('pages.silver.product')->with('products', $products);
+        return view('pages.product')->with('products', $products);
     }
 
     /**
