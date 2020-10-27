@@ -124,7 +124,7 @@
     <hr />
     <div class="product-tabs-container">
       <div class="product-tabs2">
-        <ul class="tabs clearfix block-element display-mode__desktop">
+        <ul class="tabs clearfix  display-mode__desktop">
           <li class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">
             <a class="">Thông số sản phẩm</a>
           </li>
