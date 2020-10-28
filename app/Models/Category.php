@@ -15,7 +15,8 @@ class Category extends Model
 
     public $fillable = [
         'name',
-        'status'
+        'status',
+        'image'
     ];
 
     public function products()
