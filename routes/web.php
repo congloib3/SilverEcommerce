@@ -10,6 +10,7 @@
 |
 */
 
+
 Route::get('admin/login', ['as' => 'getLogin', 'uses' => 'AdminController@getLogin']);
 Route::post('admin/login', ['as' => 'postLogin', 'uses' => 'AdminController@postLogin']);
 Route::get('admin/logout', ['as' => 'getLogout', 'uses' => 'AdminController@getLogout']);
@@ -22,9 +23,8 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace
 
 
 // ---------------------------FRONT---------------------
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'BannerController@getBanners');
+
 
 Route::get('/jewelry-silver', 'CategoryController@getCategories');
 
