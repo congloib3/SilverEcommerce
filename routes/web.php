@@ -30,20 +30,43 @@ Route::get('/jewelry-silver', 'CategoryController@getCategories');
 
 Route::get('/jewelry-silver/{id}', 'CategoryController@getProducts');
 
-Route::resource('/products', 'ProductController');
-
+Route::get('/products/{id}', 'ProductController@show');
 
 Route::resource('/cart', 'CartController');
 
-Route::get('/test/{id}', 'ProductController@test');
-
 // -----------------------ADMIN-------------------
-Route::get('/admin/create-category', 'CategoryController@create_category');
 
+        // -------------Categories--------------
 Route::resource('/admin/categories', 'CategoryController');
+Route::get('/admin/create-category', 'CategoryController@create_category');
 Route::get('/admin/update_categories/{id}', 'CategoryController@show');
 Route::post('/admin/update_categories/{id}', 'CategoryController@update');
 Route::get('/admin/remove_categories/{id}', 'CategoryController@destroy');
+
+
+        // -------------Products--------------
+Route::resource('/admin/products', 'ProductController');
+Route::get('/admin/create-product', 'ProductController@create_product');
+Route::get('/admin/update_product/{id}', 'ProductController@detail');
+Route::post('/admin/update_product/{id}', 'ProductController@update');
+Route::get('/admin/remove_product/{id}', 'ProductController@destroy');
+
+
+        // -------------Banners--------------
+Route::resource('/admin/banners', 'BannerController');
+Route::get('/admin/create-banner', 'BannerController@create_banner');
+Route::get('/admin/update_banner/{id}', 'BannerController@show');
+Route::post('/admin/update_banner/{id}', 'BannerController@update');
+Route::get('/admin/remove_banner/{id}', 'BannerController@destroy');
+
+        // -------------Thumbnails--------------
+Route::get('admin/thumbnails/{id}', 'ThumbnailController@showThumbnails');
+Route::get('/admin/create-thumbnail/{id}', 'ThumbnailController@create_thumbnail');
+Route::post('/admin/store-thumbnail', 'ThumbnailController@store');
+Route::get('/admin/update_thumbnail/{id}', 'ThumbnailController@show');
+Route::post('/admin/update_thumbnail/{id}', 'ThumbnailController@update');
+Route::get('/admin/remove_thumbnail/{id}', 'ThumbnailController@destroy');
+
 
 
 

@@ -23,8 +23,14 @@
                 @foreach($categories as $category)
                 <tr>
                     <td>{{$category->name}}</td>
-                    <td><img src="{{asset('upload/'.$category->id.'/'.$category->image)}}" width="100px" alt=""></td>
-                    <td>{{$category->status}}</td>
+                    <td><img src="{{asset('upload/categories/'.$category->id.'/'.$category->image)}}" width="100px" alt=""></td>
+                    <td>
+                        @if($category->status == 1)
+                            Hiển thị
+                        @else
+                            Ẩn
+                        @endif
+                    </td>
                     <td>
                     <a class="btn btn-warning" href="{{URL::to('admin/update_categories/'.$category->id)}}">Sửa</a>
                         <a class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa?')" href="{{URL::to('admin/remove_categories/'.$category->id)}}">Xóa</a>

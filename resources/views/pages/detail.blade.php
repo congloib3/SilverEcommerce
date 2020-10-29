@@ -30,7 +30,7 @@
         <div class="top-section">
           <img
             class="big_img"
-            src="{{$product->image}}"
+            src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
             alt=""
           />
         </div>
@@ -38,7 +38,7 @@
           @foreach( $product->thumbnails as $thumbnail)
           <img
             class="small_img"
-            src="{{$thumbnail->img_path}}"
+            src="{{asset('upload/thumbnails/'.$thumbnail->id.'/'.$thumbnail->img_path)}}"
             alt=""
           />
           @endforeach
@@ -55,7 +55,7 @@
             >
           </h3>
           <div class="product-block product-type">
-            <span>{{$product->products->name}}</span>
+            <span>{{$product->category->name}}</span>
           </div>
           <div class="product-block product-price">
             <span class="price" id="price" data-variant-price="19800000"

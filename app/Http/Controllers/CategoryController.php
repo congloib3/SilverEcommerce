@@ -25,11 +25,11 @@ class CategoryController extends Controller
 
         $products = Product::where('status', 1)->orderBy('id', 'desc')->take(8)->get();
 
-        return view('admin.categories')->with('categories', $categories)->with('products', $products);
+        return view('admin.categories.categories')->with('categories', $categories)->with('products', $products);
     }
     public function create_category()
     {
-        return view('admin.create_category');
+        return view('admin.categories.create_category');
     }
     public function getCategories()
     {
@@ -73,7 +73,7 @@ class CategoryController extends Controller
 
                 $fileName = $file->getClientOriginalName();
 
-                $uploadPath = public_path('/upload/'.$id); // Thư mục upload
+                $uploadPath = public_path('/upload/categories/'.$id); // Thư mục upload
 
                 $file->move($uploadPath, $fileName);
 
@@ -109,7 +109,7 @@ class CategoryController extends Controller
         //
         $category = Category::findOrFail($id);
 
-        return view('admin.update_category')->with('category', $category);
+        return view('admin.categories.update_category')->with('category', $category);
     }
 
     public function getProducts($id)
@@ -151,14 +151,14 @@ class CategoryController extends Controller
 
             if ($request->hasFile('image')) {
                 if (isset($category->image)) {
-                    $file_path = '/upload/'.$category->id.'/'.$category->image;
+                    $file_path = '/upload/categories/'.$category->id.'/'.$category->image;
                     File::delete(public_path($file_path));
                 }
                 $file = $request->file('image');
 
                 $fileName = $file->getClientOriginalName();
 
-                $uploadPath = public_path('/upload/'.$id); // Thư mục upload
+                $uploadPath = public_path('/upload/categories/'.$id); // Thư mục upload
 
                 $file->move($uploadPath, $fileName);
 

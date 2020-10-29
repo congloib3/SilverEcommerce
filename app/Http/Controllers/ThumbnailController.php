@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Banner;
-use Illuminate\Support\Facades\File;
+use App\Models\Product;
+use App\Models\Thumbnail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 
-
-
-class BannerController extends Controller
+class ThumbnailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,12 +18,6 @@ class BannerController extends Controller
     public function index()
     {
         //
-        $banners = Banner::all();
-        return view('admin.banners.banners')->with('banners', $banners);
-    }
-    public function getBanners(){
-        $banners = Banner::all();
-        return view('pages.home')->with('banners', $banners);
     }
 
     /**
@@ -36,9 +29,12 @@ class BannerController extends Controller
     {
         //
     }
-    public function create_banner(){
-        return view('admin.banners.create_banner');
+    public function create_thumbnail($id){
+        $product = Product::findOrFail($id);
+
+        return view('admin.thumbnails.create_thumbnail')->with('product', $product);
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -53,32 +49,32 @@ class BannerController extends Controller
 
             $input = $request->all();
 
-            $banner_tmp = Banner::create($input);
+            $thumbnail_tmp = Thumbnail::create($input);
 
-            $id = $banner_tmp->id;
-            if ($request->hasFile('image')) {
-                $file = $request->file('image');
+            $id = $thumbnail_tmp->id;
+            if ($request->hasFile('img_path')) {
+                $file = $request->file('img_path');
 
 
                 $fileName = $file->getClientOriginalName();
 
-                $uploadPath = public_path('/upload/banners/'.$id); // Thư mục upload
+                $uploadPath = public_path('/upload/thumbnails/'.$id); // Thư mục upload
 
                 $file->move($uploadPath, $fileName);
 
-                $input['image'] = $fileName;
+                $input['img_path'] = $fileName;
 
             }
 
-            $banner = $banner_tmp->findOrFail($id);
+            $thumbnail = $thumbnail_tmp->findOrFail($id);
 
-            $banner->fill($input);
+            $thumbnail->fill($input);
 
-            $banner->save();
+            $thumbnail->save();
 
             // DB::commit();
-            Session::put('message', 'Thêm banner thành công');
-            return redirect('admin/create-banner');
+            Session::put('message', 'Thêm thumbnail thành công');
+            return redirect('/admin/create-thumbnail/'.$thumbnail->product_id);
         // } catch (\Exception $e) {
         //     DB::rollback();
         // }
@@ -90,12 +86,18 @@ class BannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function showThumbnails($id){
+        $product = Product::where('id', $id)->with('thumbnails', 'category')->first();
+
+
+        return view('admin.thumbnails.thumbnails')->with('product', $product);
+    }
     public function show($id)
     {
         //
-        $banner = Banner::findOrFail($id);
+        $thumbnail = Thumbnail::findOrFail($id);
 
-        return view('admin.banners.update_banner')->with('banner', $banner);
+        return view('admin.thumbnails.update_thumbnail')->with('thumbnail', $thumbnail);
     }
 
     /**
@@ -119,34 +121,33 @@ class BannerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //
         $input = $request->all();
 
+        $thumbnail = Thumbnail::findOrFail($id);
 
-        $banner = Banner::findOrFail($id);
-
-
-        if ($request->hasFile('image')) {
-            if (isset($banner->image)) {
-                $file_path = '/upload/banners/'.$banner->id.'/'.$banner->image;
+        if ($request->hasFile('img_path')) {
+            if (isset($thumbnail->img_path)) {
+                $file_path = '/upload/thumbnails/'.$thumbnail->id.'/'.$thumbnail->img_path;
                 File::delete(public_path($file_path));
             }
-            $file = $request->file('image');
+            $file = $request->file('img_path');
 
             $fileName = $file->getClientOriginalName();
 
-            $uploadPath = public_path('/upload/banners/'.$id); // Thư mục upload
+            $uploadPath = public_path('/upload/thumbnails/'.$id); // Thư mục upload
 
             $file->move($uploadPath, $fileName);
 
-            $input['image'] = $fileName;
+            $input['img_path'] = $fileName;
         }
 
-        $banner->fill($input);
+        $thumbnail->fill($input);
 
-        $banner->save();
+        $thumbnail->save();
 
-        Session::put('message', 'Sửa banner thành công');
-        return redirect('admin/update_banner/'.$id);
+        Session::put('message', 'Sửa sản phẩm thành công');
+        return redirect('admin/update_thumbnail/'.$id);
     }
 
     /**
@@ -158,10 +159,5 @@ class BannerController extends Controller
     public function destroy($id)
     {
         //
-        $banner = Banner::findOrFail($id);
-        $banner->delete();
-
-        Session::put('message_dashboard', 'Xóa banner thành công');
-        return redirect('/admin/banners');
     }
 }

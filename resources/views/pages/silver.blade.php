@@ -16,7 +16,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="collection-item collection-item__collection">
                     <a href="{{'/jewelry-silver/'.$category->id}}">
-                        <img src="{{asset('upload/'.$category->id.'/'.$category->image)}}" alt="{{$category->name}}">
+                        <img src="{{asset('upload/categories/'.$category->id.'/'.$category->image)}}" alt="{{$category->name}}">
                     </a>
                 </div>
             </div>

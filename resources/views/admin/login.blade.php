@@ -9,7 +9,7 @@
         />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Page Title - SB Admin</title>
+        <title>Jewelry Shop Admin</title>
         <link href="{{asset('css/styles_admin.css')}}" rel="stylesheet" />
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"

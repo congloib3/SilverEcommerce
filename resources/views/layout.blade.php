@@ -104,7 +104,7 @@
                                 <a href="" id="search_popup" class="user-menu-item__icon"><i class="fas fa-search"></i></a>
                             </li>
                             <li class="user-menu-item">
-                                <a href="" class="user-menu-item__icon"><i class="far fa-user"></i></a>
+                                <a href="{{URL::to('admin/login')}}" class="user-menu-item__icon"><i class="far fa-user"></i></a>
                             </li>
                         </ul>
                     </div>
