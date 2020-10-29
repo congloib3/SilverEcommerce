@@ -8,7 +8,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\File;
 
 
 class CategoryController extends Controller
@@ -69,9 +69,18 @@ class CategoryController extends Controller
             $id = $category_tmp->id;
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
+
+
+                $fileName = $file->getClientOriginalName();
+
+                $uploadPath = public_path('/upload/'.$id); // Thư mục upload
+
+                $file->move($uploadPath, $fileName);
+
+
                 // $filename = $file->getClientOriginalName();
-                $path = Storage::disk('public')->putFileAs('categories/'.$id, $file, $file->getClientOriginalName());
-                $input['image'] = $path;
+                // $path = Storage::disk('public')->putFileAs('categories/'.$id, $file, $file->getClientOriginalName());
+                $input['image'] = $fileName;
 
             }
 
@@ -133,7 +142,6 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-            // dd($request->all());
             //
             $input = $request->all();
 
@@ -143,12 +151,18 @@ class CategoryController extends Controller
 
             if ($request->hasFile('image')) {
                 if (isset($category->image)) {
-                    Storage::delete($category->image);
+                    $file_path = '/upload/'.$category->id.'/'.$category->image;
+                    File::delete(public_path($file_path));
                 }
                 $file = $request->file('image');
-                // $filename = $file->getClientOriginalName();
-                $path = Storage::disk('public')->putFileAs('categories/'.$id, $file, $file->getClientOriginalName());
-                $input['image'] = $path;
+
+                $fileName = $file->getClientOriginalName();
+
+                $uploadPath = public_path('/upload/'.$id); // Thư mục upload
+
+                $file->move($uploadPath, $fileName);
+
+                $input['image'] = $fileName;
             }
 
             $category->fill($input);

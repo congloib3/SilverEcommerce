@@ -23,7 +23,7 @@
                 @foreach($categories as $category)
                 <tr>
                     <td>{{$category->name}}</td>
-                    <td><img src="{{asset('storage/'.$category->image)}}" width="100px" alt=""></td>
+                    <td><img src="{{asset('upload/'.$category->id.'/'.$category->image)}}" width="100px" alt=""></td>
                     <td>{{$category->status}}</td>
                     <td>
                     <a class="btn btn-warning" href="{{URL::to('admin/update_categories/'.$category->id)}}">Sửa</a>
