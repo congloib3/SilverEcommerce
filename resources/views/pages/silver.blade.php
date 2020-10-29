@@ -37,7 +37,7 @@
                                 <a href="/products/{{$product->id}}"
                                     title="{{$product->name}}">
                                     <img class="product-thumbnail-image"
-                                        src="{{$product->image}}"
+                                        src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
                                         alt="">
                                 </a>
                             </div>

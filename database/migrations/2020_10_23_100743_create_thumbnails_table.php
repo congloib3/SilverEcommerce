@@ -15,11 +15,9 @@ class CreateThumbnailsTable extends Migration
     {
         Schema::create('thumbnails', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('img_path');
+            $table->string('img_path')->nullable();
             $table->unsignedInteger('product_id');
-
             $table->timestamps();
-
             $table->foreign('product_id')
                 ->references('id')->on('products')
                 ->onDelete('cascade')

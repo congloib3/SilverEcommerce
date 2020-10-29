@@ -18,7 +18,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Hình Ảnh</label>
-                                    <input class=" py-4" id="image" name="image" type="file" />
+                                    <input required class=" py-4" id="image" name="image" type="file" />
                                 </div>
                             </div>
                         </div>

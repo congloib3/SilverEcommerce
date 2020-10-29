@@ -61,6 +61,10 @@ class CategoryController extends Controller
         //
         // // DB::beginTransaction();
         // try {
+            $request->validate([
+                'name' => 'nullable',
+                'image' => 'nullable'
+            ]);
 
             $input = $request->all();
 

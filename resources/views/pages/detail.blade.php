@@ -407,7 +407,7 @@
                                   >
                                     <img
                                       class="/products/{{$related_product->id}}"
-                                      src="{{$related_product->image}}"
+                                      src="{{asset('upload/products/'.$related_product->id.'/'.$related_product->image)}}"
                                       alt=""
                                     />
                                   </a>
