@@ -16,7 +16,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="collection-item collection-item__collection">
                     <a href="{{'/jewelry-silver/'.$category->id}}">
-                        <img src="{{asset('upload/categories/'.$category->id.'/'.$category->image)}}" alt="{{$category->name}}">
+                        <img src="{{secure_asset('upload/categories/'.$category->id.'/'.$category->image)}}" alt="{{$category->name}}">
                     </a>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                                 <a href="/products/{{$product->id}}"
                                     title="{{$product->name}}">
                                     <img class="product-thumbnail-image"
-                                        src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
+                                        src="{{secure_asset('upload/products/'.$product->id.'/'.$product->image)}}"
                                         alt="">
                                 </a>
                             </div>

@@ -10,7 +10,7 @@
         <div class="carousel-inner">
           @foreach ($banners as $banner)
           <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-            <img style="max-height:380px" class="d-block w-100" src="{{asset('upload/banners/'.$banner->id.'/'.$banner->image)}}" alt="First slide">
+            <img style="max-height:380px" class="d-block w-100" src="{{secure_asset('upload/banners/'.$banner->id.'/'.$banner->image)}}" alt="First slide">
           </div>
           @endforeach
         </div>

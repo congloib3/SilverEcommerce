@@ -30,7 +30,7 @@
         <div class="top-section">
           <img
             class="big_img"
-            src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
+            src="{{secure_asset('upload/products/'.$product->id.'/'.$product->image)}}"
             alt=""
           />
         </div>
@@ -38,7 +38,7 @@
           @foreach( $product->thumbnails as $thumbnail)
           <img
             class="small_img"
-            src="{{asset('upload/thumbnails/'.$thumbnail->id.'/'.$thumbnail->img_path)}}"
+            src="{{secure_asset('upload/thumbnails/'.$thumbnail->id.'/'.$thumbnail->img_path)}}"
             alt=""
           />
           @endforeach
@@ -407,7 +407,7 @@
                                   >
                                     <img
                                       class="/products/{{$related_product->id}}"
-                                      src="{{asset('upload/products/'.$related_product->id.'/'.$related_product->image)}}"
+                                      src="{{secure_asset('upload/products/'.$related_product->id.'/'.$related_product->image)}}"
                                       alt=""
                                     />
                                   </a>

@@ -58,7 +58,7 @@
                 >
                   <img
                     class="/products/{{$product->id}}"
-                    src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
+                    src="{{secure_asset('upload/products/'.$product->id.'/'.$product->image)}}"
                     alt=""
                   />
                 </a>
