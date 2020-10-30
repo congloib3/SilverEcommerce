@@ -10,7 +10,7 @@
         <div class="carousel-inner">
           @foreach ($banners as $banner)
           <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-            <img style="max-height:380px" class="d-block w-100" src="{{secure_asset('upload/banners/'.$banner->id.'/'.$banner->image)}}" alt="First slide">
+            <img style="max-height:380px" class="d-block w-100" src="{{asset('upload/banners/'.$banner->id.'/'.$banner->image)}}" alt="First slide">
           </div>
           @endforeach
         </div>
@@ -27,14 +27,14 @@
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="collection-item collection-item__index">
-                    <a href="/jewelry-silver">
+                    <a href="{{URL::to('/jewelry-silver')}}">
                         <img src="https://file.hstatic.net/1000103292/collection/collection_-_silver_franchise_92221bc001a845929ab5d47515b9cc89.jpg" alt="Trang sức bạc">
                     </a>
                 </div>
             </div>
             <div class="col-sm-6 col-xs-12">
                 <div class="collection-item collection-item__index">
-                    <a href="/jewelry-silver">
+                    <a href="{{URL::to('/jewelry-silver')}}">
                         <img src="https://file.hstatic.net/1000103292/collection/collection_-_gold_franchise_2df14d363bd349a495112b5e00f13b77.jpg" alt="Trang sức vàng">
                     </a>
                 </div>

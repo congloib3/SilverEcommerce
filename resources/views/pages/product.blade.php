@@ -3,7 +3,7 @@
 <section class="banner-container">
   <div class="container-limitter">
     <div class="main-logo">
-      <a href="/" title="My Shop - Trang suc bac">
+      <a href="{{URL::to('/')}}'" title="My Shop - Trang suc bac">
         <h1>Jewelry</h1>
       </a>
     </div>
@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-sm-6 col-xs-12">
         <ol class="breadcrumb">
-          <li><a href="/">Trang chủ /</a></li>
+          <li><a href="{{URL::to('/')}}'">Trang chủ /</a></li>
 
           <li class="active">&nbsp;Tất cả sản phẩm</li>
         </ol>
@@ -47,18 +47,18 @@
             <div class="product-media">
               <div class="product-thumbnail">
                 <a
-                  href="/products/{{$product->id}}"
+                  href="{{URL::to('/products/'.$product->id)}}"
                   title="{{$product->name}}"
                 >
                 </a>
 
                 <a
-                  href="/products/{{$product->id}}"
+                  href="{{URL::to('/products/'.$product->id)}}"
                   title="{{$product->name}}"
                 >
                   <img
                     class="/products/{{$product->id}}"
-                    src="{{secure_asset('upload/products/'.$product->id.'/'.$product->image)}}"
+                    src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
                     alt=""
                   />
                 </a>
@@ -103,7 +103,7 @@
             <div class="product-info">
               <h2 class="product-name">
                 <a
-                  href="/products/{{$product->id}}"
+                  href="{{URL::to('/products/'.$product->id)}}"
                   title="{{$product->name}}"
               >{{$product->name}}</a
                 >
@@ -117,7 +117,7 @@
               </div>
               <a
                 class="ts-viewdetail"
-                href="/products/{{$product->id}}"
+                href="{{URL::to('/products/'.$product->id)}}"
                 ><span class="icon icon-arrows-slim-right"></span
               ></a>
             </div>

@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/general.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/collection.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/theme.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/general.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/collection.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/theme.css') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
@@ -33,7 +33,7 @@
                     </div>
                     <nav class="navigator-container">
                         <ul class="nav-menu-container">
-                            <li class="nav-menu-item nav-menu-container__level-0"><a href="/">TRANG CHỦ</a></li>
+                            <li class="nav-menu-item nav-menu-container__level-0"><a href="{{URL::to('/')}}">TRANG CHỦ</a></li>
                             <li id="product_show" class="nav-menu-item nav-menu-container__level-0 nav-menu-item__has-sub">
                                 <a href="#">SẢN PHẨM<span class="fas fa-plus nav-menu-item__expand"></span></a>
                                 <ul class="nav-menu-container__sub nav-menu-container__level-1">
@@ -44,7 +44,7 @@
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
                                             @foreach($categories as $category)
                                             <li class="nav-menu-item">
-                                                <a href="{{'/jewelry-silver/'.$category->id}}">{{$category->name}}</a>
+                                                <a href="{{URL::to('/jewelry-silver/'.$category->id)}}">{{$category->name}}</a>
                                             </li>
                                             @endforeach
                                         </ul>
@@ -80,10 +80,10 @@
                                 </ul>
                             </li>
                             <li class="nav-menu-item nav-menu-container__level-0">
-                                <a href="/news">BLOG</a>
+                                <a href="{{URL::to('/news')}}">BLOG</a>
                             </li>
                             <li class="nav-menu-item nav-menu-container__level-0">
-                                <a href="/lien-he">LIÊN HỆ</a>
+                                <a href="{{URL::to('/lien-he')}}">LIÊN HỆ</a>
                             </li>
                         </ul>
                     </nav>
