@@ -48,8 +48,8 @@
         <div class="product-detail">
           <h3 class="product-name">
             <a
-              href="/products/bong-tai-bac-925-hanada-g7119-n34-e-2-s-220-0614-tron-da-giua"
-              title=" Bông Tai Bạc 925 Jewelry Silver Shop N34.E.2.S.220.0614 Tròn Đá Giữa"
+              href="{{URL::to('products/'.$product->id)}}"
+              title="{{$product->name}}"
             >
               {{$product->name}}</a
             >
@@ -61,55 +61,35 @@
             <span class="price" id="price" data-variant-price="19800000"
               >{{number_format($product->price).'₫'}}</span
             >
-
-            <span class="compare-price">
+            {{-- <span class="compare-price">
               <del id="compare-price">220,000₫</del>
               <span class="discount-percent" id="discount-percent">(-10%)</span>
-            </span>
+            </span> --}}
           </div>
           <div class="product-form">
             <form
-              action="/cart/add"
-              method="post"
-              enctype="multipart/form-data"
               id="add-to-cart-form"
             >
+              {{csrf_field()}}
               <div class="product-block product-variants">
-                <div class="selector-wrapper" style="display: none;">
-                  <label for="productSelect-option-0">Tiêu đề</label
-                  ><select
-                    class="single-option-selector form-control input-sm"
-                    data-option="option1"
-                    id="product-variant-option-0"
-                    ><option value="Default Title"
-                      >Default Title</option
-                    ></select
-                  >
-                </div>
-                <select
-                  class="single-option-selector"
-                  id="product-variant"
-                  name="id"
-                  style="display: none;"
-                >
-                  <option selected="selected" data-sku="" value="1061667445">
-                    DEFAULT TITLE
-                  </option>
-                </select>
                 <div class="product-quantity selector-wrapper" style="">
                   <label for="Quantity">Số lượng</label>
                   <input
-                    class="form-control input-sm"
+                    class="form-control cart_product_quantity_{{$product->id}}"
                     id="quantity"
                     min="1"
                     name="quantity"
                     type="text"
                     value="1"
                   />
+                <input class="cart_product_id_{{$product->id}}" type="hidden" value="{{$product->id}}">
+                <input class="cart_product_name_{{$product->id}}" type="hidden" value="{{$product->name}}">
+                <input class="cart_product_image_{{$product->id}}" type="hidden" value="{{$product->image}}">
+                <input class="cart_product_price_{{$product->id}}" type="hidden" value="{{$product->price}}">
                 </div>
               </div>
               <div class="product-block product-action">
-                <button class="btn btn-primary" id="add-to-cart" name="add">
+              <button type='button' class="btn btn-primary" data-id="{{$product->id}}" id="add-to-cart" name="add">
                   Thêm vào giỏ
                 </button>
                 <button class="btn btn-primary" id="buy-now" name="buy">
@@ -413,42 +393,6 @@
                                   </a>
                                 </div>
                               </div>
-                              <div class="product-flag">
-                                <div
-                                  class="product-status product-status__new"
-                                  style="display: none;"
-                                ></div>
-
-                                <div class="product-status product-status__sale"></div>
-                              </div>
-                              <div class="product-action">
-                                <a
-                                  href="javascript:void(0)"
-                                  data-id="products/{{$related_product->id}}"
-                                  class="awe-button product-quick-view btn-quickview"
-                                  data-toggle="tooltip"
-                                  data-placement="left"
-                                  title="products.product.quickview"
-                                >
-                                  <i class="line quickview"></i>
-                                </a>
-                                <form
-                                  action="/cart/add"
-                                  method="post"
-                                  class="variants AddToCartForm-1028367663"
-                                  enctype="multipart/form-data"
-                                >
-                                  <input type="hidden" name="id" value="1062004568" />
-                                  <a
-                                    class="btn-addToCart  product-add-cart"
-                                    data-toggle="tooltip"
-                                    data-placement="left"
-                                    title="Them vao gio"
-                                    href="javascript:void(0)"
-                                    ><i class="line addcart"></i
-                                  ></a>
-                                </form>
-                              </div>
                               <div class="product-info">
                                 <h2 class="product-name">
                                   <a
@@ -499,12 +443,45 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
+
+        $('#add-to-cart').click(function(){
+            var id = $(this).data('id')
+            var cart_product_id = $('.cart_product_id_' + id).val()
+            var cart_product_name = $('.cart_product_name_' + id).val()
+            var cart_product_image = $('.cart_product_image_' + id).val()
+            var cart_product_price = $('.cart_product_price_' + id).val()
+            var cart_product_quantity = $('.cart_product_quantity_' + id).val()
+            var _token = $('input[name=_token]').val()
+
+            $.ajax({
+                url: '{{url('/add-cart-ajax')}}',
+                method: 'POST',
+                data:{cart_product_id:cart_product_id,cart_product_name:cart_product_name,cart_product_image:cart_product_image,cart_product_price:cart_product_price,cart_product_quantity:cart_product_quantity, _token:_token},
+                success:function(data){
+                    swal({
+                        title: "Đã thêm sản phẩm vào giỏ hàng",
+                        text: "Bạn có thể mua hàng tiếp hoặc có thể tới giỏ hàng để thanh toán",
+                        showCancelButton: true,
+                        cancelButtonText: "Xem tiếp",
+                        confirmButtonclass: "btn-success",
+                        confirmButtonText: "Đi đến giỏ hàng",
+                        closeOnConfirm: false
+                    },
+                    function(){
+                        window.location.href = "{{url('/cart')}}";
+                    });
+                }
+            })
+        })
+
       $(".big_img").imagezoomsl({
         zoomrange: [3, 3],
       });
     });
   </script>
   <script>
+
+
     function openCity(evt, cityName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
@@ -530,7 +507,6 @@
   if (it > 0) {
     for (var i = 0; i < it; i++) {
       $('.carousel-item', this).eq(e.direction == "left" ? i : 0).
-        // append slides to the end/beginning
         appendTo($itemsContainer);
     }
   }

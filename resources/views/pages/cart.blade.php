@@ -16,9 +16,7 @@
       <div class="col-sm-6 col-xs-12">
         <ol class="breadcrumb">
           <li><a href="{{URL::to('/')}}'">Trang chủ /</a></li>
-
             <li class="active">&nbsp;Giỏ hàng</li>
-
         </ol>
       </div>
       <div class="col-sm-6 col-xs-12 pull-right text-right">
@@ -36,7 +34,11 @@
 </div>
 <section class="cart-container" id="cart">
   <div class="container-limitter">
-      <form class="cart-form" action="/cart" method="post" novalidate="">
+  @if(!Session::get('cart'))
+    Giỏ hàng trống
+  @else
+  <form class="cart-form" action="{{url('/update-cart')}}" method="post">
+    {{csrf_field()}}
         <div class="cart-head">
           <div class="cart-row">
             <div class="cart-group cart-group__thumbnail">
@@ -66,52 +68,55 @@
           </div>
         </div>
         <div class="cart-body">
+            @php
+                $total = 0;
+            @endphp
+            @foreach(Session::get('cart') as $key => $cart)
+                @php
+                    $subtotal = $cart['product_price']*$cart['product_quantity'];
+                    $total=$total+$subtotal;
+                @endphp
             <div class="cart-row">
-              <div class="cart-group cart-group__thumbnail">
-                <div class="cart-cell cart-cell__thumbnail">
-                  <a href="/products/nhan-bac-925-hanada-n1234-r-2-s-200-0575-nhan-da-doi-xung" title="Nhẫn Bạc 925 Hanada N1234.R.2.S.200.0575 Nhẫn Đá Đối Xứng">
-                    <img src="//product.hstatic.net/1000103292/product/j7490__5__17fcf06052c749bebf889213963b8102_compact.jpg" alt="Nhẫn Bạc 925 Hanada N1234.R.2.S.200.0575 Nhẫn Đá Đối Xứng">
-                  </a>
-                </div>
-              </div>
-              <div class="cart-group cart-group__detail">
-                <div class="cart-cell cart-cell__product-name">
-                  <a href="/products/nhan-bac-925-hanada-n1234-r-2-s-200-0575-nhan-da-doi-xung">Nhẫn Bạc 925 Hanada N1234.R.2.S.200.0575 Nhẫn Đá Đối Xứng</a>
-                </div>
-                <div class="cart-cell cart-cell__price" data-value="18000000">
-                  180,000₫
-                </div>
-                <div class="cart-cell cart-cell__quantity">
-                  <div class="input-group">
-                    <span class="input-group-btn">
-                      <button style="height: 100%; background-color:#fff; color:black;border:1px solid #ccc" class="btn btn-default minus"  type="button"><span class="far fa-minus"></span></button>
-                    </span>
-                    <input style="padding:0 !important" class="form-control" id="product-1061708754-quantity" min="0" name="updates[]" readonly="" size="4" type="text" value="1">
-                    <span class="input-group-btn">
-                      <button style="height: 100%; background-color:#fff; color:black;border:1px solid #ccc" class="btn btn-default plus"  type="button"><span class="far fa-plus"></span></button>
-                    </span>
+                <div class="cart-group cart-group__thumbnail">
+                  <div class="cart-cell cart-cell__thumbnail">
+                    <a href="{{URL::to('/products/'.$cart['product_id'])}}" title="{{$cart['product_name']}}">
+                      <img src="{{asset('upload/products/'.$cart['product_id'].'/'.$cart['product_image'])}}" alt="{{$cart['product_name']}}">
+                    </a>
                   </div>
                 </div>
-                <div class="cart-cell cart-cell__sub-total">
-                  <span class="price">
-                    180,000₫
-                  </span>
-                    <span class="discount">
+                <div class="cart-group cart-group__detail">
+                  <div class="cart-cell cart-cell__product-name">
+                    <a href="{{URL::to('/products/'.$cart['product_id'])}}">{{$cart['product_name']}}</a>
+                  </div>
+                  <div class="cart-cell cart-cell__price">
+                    {{number_format($cart['product_price'])}}₫
+                  </div>
+                  <div class="cart-cell cart-cell__quantity">
+                    <div class="">
+                        <input class="form-control" min="1" name="cart_quantity[{{$cart['session_id']}}]" type="number" value="{{$cart['product_quantity']}}">
+                    </div>
+                  </div>
+                  <div class="cart-cell cart-cell__sub-total">
+                    <span class="price">
+                      {{number_format($subtotal)}}₫
                     </span>
+                      <span class="discount">
+                      </span>
+                  </div>
+                </div>
+                <div class="cart-group cart-group__action">
+                  <div class="cart-cell cart-cell__action">
+                  <a class="btn" style="background-color:color: #fff;background-color: #d9534f;border-color: #d43f3a;" href="{{URL::to('/delete-cart/'.$cart['session_id'])}}"><i class="far fa-trash-alt"></i></a>
+                  </div>
                 </div>
               </div>
-              <div class="cart-group cart-group__action">
-                <div class="cart-cell cart-cell__action">
-                  <a class="btn" style="background-color:color: #fff;background-color: #d9534f;border-color: #d43f3a;" href="/cart/change?line=1&amp;quantity=0" data-id="1061708754"><i class="far fa-trash-alt"></i></a>
-                </div>
-              </div>
-            </div>
+            @endforeach
         </div>
         <div class="cart-foot">
           <div class="cart-row">
             <div class="cart-cell cart-cell__total">
               <span>Tổng cộng:</span>
-              <span class="price">180,000₫</span>
+              <span class="price">{{number_format($total)}}₫</span>
             </div>
           </div>
           <div class="cart-row">
@@ -121,66 +126,14 @@
           </div>
           <div class="cart-row no-border">
             <div class="cart-cell cart-cell__submit">
-                <a  href="/checkout" class="btn btn-info">Thanh toán</a>
-              {{-- <input  type="submit" id="checkout-cart" name="checkout" class="btn btn-primary" value="Thanh toán"> --}}
-              <input  type="submit" id="update-cart" name="update" class="btn btn-info" value="Cập nhật số lượng">
+              <a  href="/checkout" class="btn btn-info">Thanh toán</a>
+              <input type="submit" id="update-cart" name="update" class="btn btn-info" value="Cập nhật số lượng">
               <a  href="/" class="btn btn-info">Tiếp tục mua sắm</a>
             </div>
           </div>
         </div>
       </form>
+  @endif
   </div>
 </section>
-<script>
-  function pixelInitiateCheckout() {
-    fbq('track', 'InitiateCheckout', {
-      contents: [
-
-          {
-            id: 1061708754,
-            quantity: 1,
-            item_price: 18000000
-          },
-
-      ],
-      currency: 'VND',
-      value: 5
-    });
-  }
-</script>
-<script>
-  function updatePrice() {
-  }
-</script>
-<script>
-  $('.cart-body .cart-cell__quantity .minus').on('click', function(ev) {
-    var linkedInputId = $(this).data('linked-input');
-    var linkedInput = $('#' + linkedInputId);
-    var quantity = linkedInput.val();
-    if (isNaN(quantity) || quantity <= 1) {
-      quantity = 1;
-    }
-    else {
-      quantity--;
-    }
-    linkedInput.val(quantity);
-    updatePrice();
-  });
-  $('.cart-body .cart-cell__quantity .plus').on('click', function(ev) {
-    var linkedInputId = $(this).data('linked-input');
-    var linkedInput = $('#' + linkedInputId);
-    var quantity = linkedInput.val();
-    if (isNaN(quantity) || quantity < 1) {
-      quantity = 1;
-    }
-    else {
-      quantity++;
-    }
-    linkedInput.val(quantity);
-    updatePrice();
-  });
-</script>
-<script>
-  $('#checkout-cart').click(pixelInitiateCheckout);
-</script>
 @endsection

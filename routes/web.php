@@ -11,10 +11,11 @@
 */
 
 
+
+// --------------------------LOGIN---------------------
 Route::get('admin/login', ['as' => 'getLogin', 'uses' => 'AdminController@getLogin']);
 Route::post('admin/login', ['as' => 'postLogin', 'uses' => 'AdminController@postLogin']);
 Route::get('admin/logout', ['as' => 'getLogout', 'uses' => 'AdminController@getLogout']);
-
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	Route::get('/dashboard', function() {
 		return redirect('/admin/products');
@@ -25,14 +26,29 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace
 // ---------------------------FRONT---------------------
 Route::get('/', 'BannerController@getBanners');
 
-
 Route::get('/jewelry-silver', 'CategoryController@getCategories');
 
 Route::get('/jewelry-silver/{id}', 'CategoryController@getProducts');
 
 Route::get('/products/{id}', 'ProductController@show');
 
-Route::resource('/cart', 'CartController');
+Route::get('/news', function(){
+    return view('pages.blog');
+});
+
+Route::get('/lien-he', function(){
+    return view('pages.contact');
+});
+
+Route::get('/checkout', function(){
+    return view('pages.checkout');
+});
+
+        // ---------------Cart-------------------------
+Route::get('/cart', 'CartController@index');
+Route::post('/add-cart-ajax', 'CartController@add_cart_ajax');
+Route::post('/update-cart', 'CartController@update_cart');
+Route::get('/delete-cart/{session_id}', 'CartController@delete_cart');
 
 // -----------------------ADMIN-------------------
 
@@ -71,17 +87,7 @@ Route::get('/admin/remove_thumbnail/{id}', 'ThumbnailController@destroy');
 
 
 // ------------------------------------
-Route::get('/news', function(){
-    return view('pages.blog');
-});
 
-Route::get('/lien-he', function(){
-    return view('pages.contact');
-});
-
-Route::get('/checkout', function(){
-    return view('pages.checkout');
-});
 
 
 

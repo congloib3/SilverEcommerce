@@ -64,42 +64,6 @@
                 </a>
               </div>
             </div>
-            <div class="product-flag">
-              <div
-                class="product-status product-status__new"
-                style="display: none;"
-              ></div>
-
-              <div class="product-status product-status__sale"></div>
-            </div>
-            <div class="product-action">
-              <a
-                href="javascript:void(0)"
-                data-id="products/{{$product->id}}"
-                class="awe-button product-quick-view btn-quickview"
-                data-toggle="tooltip"
-                data-placement="left"
-                title="products.product.quickview"
-              >
-                <i class="line quickview"></i>
-              </a>
-              <form
-                action="/cart/add"
-                method="post"
-                class="variants AddToCartForm-1028367663"
-                enctype="multipart/form-data"
-              >
-                <input type="hidden" name="id" value="1062004568" />
-                <a
-                  class="btn-addToCart  product-add-cart"
-                  data-toggle="tooltip"
-                  data-placement="left"
-                  title="Them vao gio"
-                  href="javascript:void(0)"
-                  ><i class="line addcart"></i
-                ></a>
-              </form>
-            </div>
             <div class="product-info">
               <h2 class="product-name">
                 <a
@@ -112,8 +76,7 @@
                 <span class="price">
                   {{number_format($product->price)}}
                 </span>
-
-                <span class="compare-price"><del>(380,000₫)</del></span>
+                {{-- <span class="compare-price"><del>(380,000₫)</del></span> --}}
               </div>
               <a
                 class="ts-viewdetail"
@@ -148,15 +111,6 @@
         </div>
       </div>
     </div>
-    <form action="" id="product-filter-form" method="get">
-      <input id="product-filter-page" name="page" type="hidden" value="" />
-      <input
-        id="product-filter-sort-by"
-        name="sort_by"
-        type="hidden"
-        value=""
-      />
-    </form>
   </div>
 </section>
 @endsection

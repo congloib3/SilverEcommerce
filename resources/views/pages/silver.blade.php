@@ -30,10 +30,9 @@
             @foreach($products as $product)
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="product-item product-item__grid">
-                    <div data-id="product-1022948948" data-publish-date="">
+                    <div>
                         <div class="product-media">
                             <div class="product-thumbnail">
-
                                 <a href="{{URL::to('/products/'.$product->id)}}"
                                     title="{{$product->name}}">
                                     <img class="product-thumbnail-image"
@@ -41,30 +40,6 @@
                                         alt="">
                                 </a>
                             </div>
-                        </div>
-                        <div class="product-flag">
-                            <div class="product-status product-status__new" style="display: none;">
-                            </div>
-
-                            <div class="product-status product-status__sale">
-                            </div>
-
-                        </div>
-                        <div class="product-action">
-                            <a href="javascript:void(0)" data-id="lac-tay-bac-hanada-lac-unisex-moc-xich-ban-dep"
-                                class="awe-button product-quick-view btn-quickview" data-toggle="tooltip"
-                                data-placement="left" title="products.product.quickview">
-                                <i class="line quickview"></i>
-                            </a>
-                            <form action="/cart/add" method="post" class="variants AddToCartForm-1022948948"
-                                enctype="multipart/form-data">
-
-                                <a class="btn-select-option  product-add-cart" data-toggle="tooltip"
-                                    data-placement="left" title="Ban het"
-                                    href="{{URL::to('/products/'.$product->id)}}"><i
-                                        class="line addcart"></i></a>
-
-                            </form>
                         </div>
                         <div class="product-info">
                             <h2 class="product-name">
@@ -75,7 +50,7 @@
                                 <span class="price">
                                     {{number_format($product->price)}}
                                 </span>
-                                <span class="compare-price"><del>(250,000₫)</del></span>
+                                {{-- <span class="compare-price"><del>(250,000₫)</del></span> --}}
                             </div>
                             <a class="ts-viewdetail"
                                 href="{{URL::to('/products/'.$product->id)}}"><span
@@ -86,7 +61,6 @@
             </div>
             @endforeach
         </div>
-
     </div>
 </div>
 </div>
