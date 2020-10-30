@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="{{ asset('css/checkout.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/checkout.css') }}" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <div class="content">
     <div class="wrap">

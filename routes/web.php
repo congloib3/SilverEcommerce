@@ -17,7 +17,7 @@ Route::get('admin/logout', ['as' => 'getLogout', 'uses' => 'AdminController@getL
 
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	Route::get('/dashboard', function() {
-		return view('admin.dashboard');
+		return redirect('/admin/products');
 	});
 });
 

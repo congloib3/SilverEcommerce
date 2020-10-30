@@ -1,5 +1,5 @@
 @extends('layout') @section('content')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/product.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/product.css') }}">
 <section class="banner-container">
     <div class="container-limitter">
         <div class="main-logo">

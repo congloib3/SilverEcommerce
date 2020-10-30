@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/cart.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/cart.css') }}">
 <section class="banner-container">
     <div class="container-limitter">
         <div class="main-logo">

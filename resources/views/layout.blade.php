@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/general.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/collection.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/general.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/collection.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/theme.css') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
@@ -326,14 +326,17 @@
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Your Chat Plugin code -->
     <div class="fb-customerchat"
       attribution=setup_tool
-      page_id="107147727683713">
+      page_id="115380577027482"
+theme_color="#0A7CFF"
+logged_in_greeting="Mình có thể tư vấn gì cho bạn?"
+logged_out_greeting="Mình có thể tư vấn gì cho bạn?">
     </div>
 
     <script src="{{URL::asset('js/zoomsl.min.js')}}" type="text/javascript"></script>
