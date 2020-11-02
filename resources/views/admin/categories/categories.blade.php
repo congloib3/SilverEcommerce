@@ -25,7 +25,7 @@
                     <td>{{$category->name}}</td>
                     <td><img src="{{asset('upload/categories/'.$category->id.'/'.$category->image)}}" width="100px" alt=""></td>
                     <td>
-                        {{$category->commodity->name}}
+                        {{$category->commodity_id}}
                     </td>
                     <td>
                     <a class="btn btn-warning" href="{{URL::to('admin/update_categories/'.$category->id)}}">Sửa</a>
