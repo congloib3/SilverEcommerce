@@ -30,10 +30,12 @@
                         </div>
                         <div class="form-row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="radio"  id="option1" name="status" value="0">Không hiển thị</label>
-                                    <input type="radio" id="option2" name="status" value="1" >Hiển thị</label>
-                                </div>
+                                <label class="small mb-1" for="inputFirstName">Loại Sản Phẩm</label>
+                                <select class="form-control" name="commodity_id" id="commodity_id">
+                                    @foreach($commodities as $commodity)
+                                        <option value="{{$commodity->id}}">{{$commodity->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group mt-4 mb-0"><input type="submit" class="btn btn-info btn-block" value="Lưu"></div>

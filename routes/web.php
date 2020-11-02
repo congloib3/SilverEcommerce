@@ -24,13 +24,14 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace
 
 
 // ---------------------------FRONT---------------------
+Route::get('/slug/{product}', 'BannerController@testSlug');
 Route::get('/', 'BannerController@getBanners');
 
-Route::get('/jewelry-silver', 'CategoryController@getCategories');
+Route::get('/jewelry/{id}', 'CategoryController@getCommodities');
 
-Route::get('/jewelry-silver/{id}', 'CategoryController@getProducts');
+Route::get('/san-pham/{id}', 'CategoryController@getProducts');
 
-Route::get('/products/{id}', 'ProductController@show');
+Route::get('/chi-tiet/{id}', 'ProductController@show');
 
 Route::get('/news', function(){
     return view('pages.blog');
@@ -82,6 +83,13 @@ Route::post('/admin/store-thumbnail', 'ThumbnailController@store');
 Route::get('/admin/update_thumbnail/{id}', 'ThumbnailController@show');
 Route::post('/admin/update_thumbnail/{id}', 'ThumbnailController@update');
 Route::get('/admin/remove_thumbnail/{id}', 'ThumbnailController@destroy');
+
+        // -------------Commodity--------------
+Route::get('/admin/commodities', 'CommodityController@index');
+Route::get('/admin/create-commodity', 'CommodityController@create_commodity');
+Route::get('/admin/update_commodity/{id}', 'CommodityController@show');
+Route::post('/admin/update_commodity/{id}', 'CommodityController@update');
+Route::get('/admin/remove_commodity/{id}', 'CommodityController@destroy');
 
 
 

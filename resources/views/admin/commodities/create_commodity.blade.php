@@ -14,7 +14,13 @@
                 ?>
                 <form action="{{URL::to('admin/banners')}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
-                        <div class="form-row">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="">Tên loại sản phẩm</label>
+                                    <input required class="form-control py-4" id="name" name="name" type="text" placeholder="Tên loại sản phẩm" />
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Hình Ảnh</label>

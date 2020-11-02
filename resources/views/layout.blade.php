@@ -40,30 +40,14 @@
                                 <ul class="nav-menu-container__sub nav-menu-container__level-1">
                                     <li class="nav-menu-item active nav-menu-item__has-sub">
 
-                                        <a href="#">Bạc Ls&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
+                                        <a href="#">Bạc&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
 
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
                                             @foreach($categories as $category)
                                             <li class="nav-menu-item">
-                                                <a href="{{URL::to('/jewelry-silver/'.$category->id)}}">{{$category->name}}</a>
+                                                <a href="{{URL::to('/san-pham/'.$category->id)}}">{{$category->name}}</a>
                                             </li>
                                             @endforeach
-                                        </ul>
-                                    </li>
-                                    <li class="nav-menu-item active nav-menu-item__has-sub">
-
-                                        <a class="block-element display-mode__desktop" href="#">&nbsp;</a>
-
-                                        <ul class="nav-menu-container__sub nav-menu-container__level-2">
-
-                                            <li class="nav-menu-item">
-                                                <a href="/nhan-cap">Nhẫn Cặp</a>
-                                            </li>
-
-                                            <li class="nav-menu-item">
-                                                <a href="/me-va-be">Mẹ và Bé</a>
-                                            </li>
-
                                         </ul>
                                     </li>
                                     <li class="nav-menu-item active nav-menu-item__has-sub">

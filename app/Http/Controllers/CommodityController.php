@@ -3,21 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Banner;
 use App\Models\Commodity;
-use App\Models\Product;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 
-
-
-class BannerController extends Controller
+class CommodityController extends Controller
 {
-    public function testSlug(Product $product){
-        $commodities = Product::find($product);
-
-        return $commodities;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -26,13 +17,12 @@ class BannerController extends Controller
     public function index()
     {
         //
-        $banners = Banner::all();
-        return view('admin.banners.banners')->with('banners', $banners);
-    }
-    public function getBanners(){
-        $banners = Banner::all();
         $commodities = Commodity::all();
-        return view('pages.home')->with('banners', $banners)->with('commodities', $commodities);
+        return view('admin.commodities.commodities')->with('commodities', $commodities);
+    }
+    public function getCommodities(){
+        $commodities = Commodity::all();
+        return view('pages.home')->with('commodities', $commodities);
     }
 
     /**
@@ -44,8 +34,8 @@ class BannerController extends Controller
     {
         //
     }
-    public function create_banner(){
-        return view('admin.banners.create_banner');
+    public function create_commodity(){
+        return view('admin.commodities.create_commodity');
     }
     /**
      * Store a newly created resource in storage.
@@ -61,16 +51,16 @@ class BannerController extends Controller
 
             $input = $request->all();
 
-            $banner_tmp = Banner::create($input);
+            $commodity_tmp = Commodity::create($input);
 
-            $id = $banner_tmp->id;
+            $id = $commodity_tmp->id;
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
 
 
                 $fileName = $file->getClientOriginalName();
 
-                $uploadPath = public_path('/upload/banners/'.$id); // Thư mục upload
+                $uploadPath = public_path('/upload/commodities/'.$id); // Thư mục upload
 
                 $file->move($uploadPath, $fileName);
 
@@ -78,15 +68,15 @@ class BannerController extends Controller
 
             }
 
-            $banner = $banner_tmp->findOrFail($id);
+            $commodity = $commodity_tmp->findOrFail($id);
 
-            $banner->fill($input);
+            $commodity->fill($input);
 
-            $banner->save();
+            $commodity->save();
 
             // DB::commit();
-            Session::put('message', 'Thêm banner thành công');
-            return redirect('admin/create-banner');
+            Session::put('message', 'Thêm loại sản phẩm thành công');
+            return redirect('admin/create-commodity');
         // } catch (\Exception $e) {
         //     DB::rollback();
         // }
@@ -101,9 +91,9 @@ class BannerController extends Controller
     public function show($id)
     {
         //
-        $banner = Banner::findOrFail($id);
+        $commodity = Commodity::findOrFail($id);
 
-        return view('admin.banners.update_banner')->with('banner', $banner);
+        return view('admin.commodities.update_commodity')->with('commodity', $commodity);
     }
 
     /**
@@ -130,31 +120,31 @@ class BannerController extends Controller
         $input = $request->all();
 
 
-        $banner = Banner::findOrFail($id);
+        $commodity = Commodity::findOrFail($id);
 
 
         if ($request->hasFile('image')) {
-            if (isset($banner->image)) {
-                $file_path = '/upload/banners/'.$banner->id.'/'.$banner->image;
+            if (isset($commodity->image)) {
+                $file_path = '/upload/commodities/'.$commodity->id.'/'.$commodity->image;
                 File::delete(public_path($file_path));
             }
             $file = $request->file('image');
 
             $fileName = $file->getClientOriginalName();
 
-            $uploadPath = public_path('/upload/banners/'.$id); // Thư mục upload
+            $uploadPath = public_path('/upload/commodities/'.$id); // Thư mục upload
 
             $file->move($uploadPath, $fileName);
 
             $input['image'] = $fileName;
         }
 
-        $banner->fill($input);
+        $commodity->fill($input);
 
-        $banner->save();
+        $commodity->save();
 
-        Session::put('message', 'Sửa banner thành công');
-        return redirect('admin/update_banner/'.$id);
+        Session::put('message', 'Sửa loại sản phẩm thành công');
+        return redirect('admin/update_commodity/'.$id);
     }
 
     /**
@@ -166,10 +156,10 @@ class BannerController extends Controller
     public function destroy($id)
     {
         //
-        $banner = Banner::findOrFail($id);
-        $banner->delete();
+        $commodity = Commodity::findOrFail($id);
+        $commodity->delete();
 
-        Session::put('message_dashboard', 'Xóa banner thành công');
-        return redirect('/admin/banners');
+        Session::put('message_dashboard', 'Xóa loại sản phẩm thành công');
+        return redirect('/admin/commodities');
     }
 }

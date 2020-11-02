@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Commodity;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -23,22 +24,31 @@ class CategoryController extends Controller
         //
         $categories = Category::all();
 
-        $products = Product::where('status', 1)->orderBy('id', 'desc')->take(8)->get();
 
-        return view('admin.categories.categories')->with('categories', $categories)->with('products', $products);
+        return view('admin.categories.categories')->with('categories', $categories);
     }
     public function create_category()
     {
-        return view('admin.categories.create_category');
+        $commodities = Commodity::all();
+        return view('admin.categories.create_category')->with('commodities', $commodities);
     }
-    public function getCategories()
+    public function getCommodities($id)
     {
         //
-        $categories = Category::all();
+        $categories = Category::where('commodity_id', $id)->get();
 
-        $products = Product::where('status', 1)->orderBy('id', 'desc')->take(8)->get();
+        $products = Product::where('status', 1)->inRandomOrder()->take(8)->get();
 
-        return view('pages.silver')->with('categories', $categories)->with('products', $products);
+        return view('pages.commodity')->with('categories', $categories)->with('products', $products);
+    }
+    public function getWatchs()
+    {
+        //
+        $categories = Category::where('commodity_id', 2)->get();
+
+        $products = Product::where('status', 1)->inRandomOrder()->take(8)->get();
+
+        return view('pages.watch')->with('categories', $categories)->with('products', $products);
     }
 
     /**
@@ -113,7 +123,9 @@ class CategoryController extends Controller
         //
         $category = Category::findOrFail($id);
 
-        return view('admin.categories.update_category')->with('category', $category);
+        $commodities = Commodity::all();
+
+        return view('admin.categories.update_category')->with('category', $category)->with('commodities', $commodities);
     }
 
     public function getProducts($id)
@@ -148,7 +160,6 @@ class CategoryController extends Controller
     {
             //
             $input = $request->all();
-
 
             $category = Category::findOrFail($id);
 

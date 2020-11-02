@@ -31,8 +31,12 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="radio"  id="option1" name="status" value="0"  {{ ($category->status=="0")? "checked" : "" }} >Không hiển thị</label>
-                                    <input type="radio" id="option2" name="status" value="1" {{ ($category->status=="1")? "checked" : "" }} >Hiển thị</label>
+                                    <label class="small mb-1" for="inputFirstName">Tên Danh Mục</label>
+                                    <select required="required" class="form-control" name="commodity_id">
+                                        @foreach ($commodities as $key => $value)
+                                            <option value="{{ $value->id }}" {{ $category->commodity_id == $value->id ? "selected" : '' }}>{{ $value->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>

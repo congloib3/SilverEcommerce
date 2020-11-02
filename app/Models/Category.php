@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     //
-    //
     public $table = 'categories';
 
     const CREATED_AT = 'created_at';
@@ -16,11 +15,16 @@ class Category extends Model
     public $fillable = [
         'name',
         'status',
-        'image'
+        'image',
+        'commodity_id'
     ];
 
     public function products()
     {
         return $this->hasMany(\App\Models\Product::class, 'category_id');
+    }
+    public function commodity()
+    {
+        return $this->belongsTo(\App\Models\Commodity::class, 'commodity_id');
     }
 }

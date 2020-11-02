@@ -48,7 +48,7 @@
         <div class="product-detail">
           <h3 class="product-name">
             <a
-              href="{{URL::to('products/'.$product->id)}}"
+              href="{{URL::to('chi-tiet/'.$product->id)}}"
               title="{{$product->name}}"
             >
               {{$product->name}}</a
@@ -376,17 +376,17 @@
                               <div class="product-media">
                                 <div class="product-thumbnail">
                                   <a
-                                    href="{{URL::to('/products/'.$related_product->id)}}"
+                                    href="{{URL::to('/chi-tiet/'.$related_product->id)}}"
                                     title="{{$related_product->name}}"
                                   >
                                   </a>
 
                                   <a
-                                    href="{{URL::to('/products/'.$related_product->id)}}"
+                                    href="{{URL::to('/chi-tiet/'.$related_product->id)}}"
                                     title="{{$related_product->name}}"
                                   >
                                     <img
-                                      class="/products/{{$related_product->id}}"
+                                      class="/chi-tiet/{{$related_product->id}}"
                                       src="{{asset('upload/products/'.$related_product->id.'/'.$related_product->image)}}"
                                       alt=""
                                     />
@@ -396,7 +396,7 @@
                               <div class="product-info">
                                 <h2 class="product-name">
                                   <a
-                                    href="{{URL::to('/products/'.$related_product->id)}}"
+                                    href="{{URL::to('/chi-tiet/'.$related_product->id)}}"
                                     title="{{$related_product->name}}"
                                 >{{$related_product->name}}</a
                                   >
@@ -410,7 +410,7 @@
                                 </div>
                                 <a
                                   class="ts-viewdetail"
-                                  href="{{URL::to('/products/'.$related_product->id)}}"
+                                  href="{{URL::to('/chi-tiet/'.$related_product->id)}}"
                                   ><span class="icon icon-arrows-slim-right"></span
                                 ></a>
                               </div>

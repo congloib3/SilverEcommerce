@@ -61,14 +61,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="radio"  id="option1" name="status" value="0" >Không hiển thị</label>
-                                    <input type="radio" id="option2" name="status" value="1" >Hiển thị</label>
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group mt-4 mb-0"><input type="submit" class="btn btn-info btn-block" value="Lưu"></div>
                     </form>
                 </div>

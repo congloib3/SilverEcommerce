@@ -50,6 +50,10 @@
                                 <div class="sb-nav-link-icon"><i class="fab fa-buffer"></i></div>
                                 Sản phẩm
                             </a>
+                            <a class="nav-link" href="{{URL::to('/admin/commodities')}}">
+                                <div class="sb-nav-link-icon"><i class="fab fa-trello"></i></div>
+                                Loại sản phẩm
+                            </a>
                             <a class="nav-link" href="{{URL::to('/admin/banners')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-double-right"></i></div>
                                 Banner
