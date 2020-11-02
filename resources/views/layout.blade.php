@@ -43,23 +43,23 @@
                                         <a href="#">Bạc&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
 
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
-                                            @foreach($categories as $category)
+                                            @foreach($silvers as $silver)
                                             <li class="nav-menu-item">
-                                                <a href="{{URL::to('/san-pham/'.$category->id)}}">{{$category->name}}</a>
+                                                <a href="{{URL::to('/san-pham/'.$silver->id)}}">{{$silver->name}}</a>
                                             </li>
                                             @endforeach
                                         </ul>
                                     </li>
                                     <li class="nav-menu-item active nav-menu-item__has-sub">
 
-                                        <a href="#">Vàng&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
+                                        <a href="#">Đồng Hồ&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
 
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
-
+                                            @foreach($watchs as $watch)
                                             <li class="nav-menu-item">
-                                                <a href="/trang-suc-vang">Nhẫn Vàng</a>
+                                                <a href="{{URL::to('/san-pham/'.$watch->id)}}">{{$watch->name}}</a>
                                             </li>
-
+                                            @endforeach
                                         </ul>
                                     </li>
                                 </ul>

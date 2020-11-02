@@ -27,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         view()->composer('layout', function($view){
-            $view->with('categories', Category::where('status', 1)->orderBy('id', 'asc')->get());
+            $view->with('silvers', Category::where('commodity_id', 1)->orderBy('id', 'asc')->get())
+                 ->with('watchs', Category::where('commodity_id', 2)->orderBy('id', 'asc')->get());
         });
     }
 }
