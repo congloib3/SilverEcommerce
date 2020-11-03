@@ -75,7 +75,11 @@
                         <ul class="user-menu-container">
                             <li class="user-menu-item">
                                 <a href="/cart" class="user-menu-item__icon"><i class="fas fa-shopping-cart"></i></a>
-                            <span class="user-menu-item__badge" id="mini-cart-item-count-badge">{{count(Session::get('cart'))}}</span>
+                                @if(Session::get('cart'))
+                                <span class="user-menu-item__badge" id="mini-cart-item-count-badge">
+                                    {{count(Session::get('cart'))}}
+                                @endif
+                            </span>
                             </li>
                             <li class="user-menu-item">
                                 <a href="" class="user-menu-item__icon"><i class="fab fa-facebook"></i></a>
