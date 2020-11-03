@@ -119,11 +119,6 @@
               <span class="price">{{number_format($total)}}₫</span>
             </div>
           </div>
-          <div class="cart-row">
-            <div class="cart-cell cart-cell__note">
-              <textarea class="form-control" name="note" id="CartSpecialInstructions" placeholder="Ghi chú" rows="5"></textarea>
-            </div>
-          </div>
           <div class="cart-row no-border">
             <div class="cart-cell cart-cell__submit">
               <a  href="/checkout" class="btn btn-info">Thanh toán</a>

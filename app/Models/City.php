@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class City extends Model
+{
+    //
+    public $timestamp = false;
+    public $fillable = [
+        'name_city',
+        'type'
+    ];
+    public $primaryKey = 'matp';
+    public $table = 'tbl_tinhthanhpho';
+}

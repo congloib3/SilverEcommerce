@@ -9,7 +9,7 @@
     <link rel="icon" href="https://www.simmonsfinejewelry.com/wp-content/uploads/2019/02/fav.png" type="image/gif" sizes="16x16">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/general.css') }}">
@@ -63,9 +63,6 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-menu-item nav-menu-container__level-0">
-                                <a href="{{URL::to('/news')}}">BLOG</a>
                             </li>
                             <li class="nav-menu-item nav-menu-container__level-0">
                                 <a href="{{URL::to('/lien-he')}}">LIÊN HỆ</a>

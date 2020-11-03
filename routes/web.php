@@ -33,17 +33,15 @@ Route::get('/san-pham/{id}', 'CategoryController@getProducts');
 
 Route::get('/chi-tiet/{id}', 'ProductController@show');
 
-Route::get('/news', function(){
-    return view('pages.blog');
-});
-
 Route::get('/lien-he', function(){
     return view('pages.contact');
 });
 
-Route::get('/checkout', function(){
-    return view('pages.checkout');
-});
+        // ---------------Checkout--------------------
+Route::get('/checkout', 'CheckoutController@index');
+Route::post('/checkout-select-delivery', 'CheckoutController@select_delivery');
+Route::post('/checkout-calculate-fee', 'CheckoutController@calculate_fee');
+Route::post('/checkout-complete-bill', 'CheckoutController@checkout_complete_bill');
 
         // ---------------Cart-------------------------
 Route::get('/cart', 'CartController@index');
@@ -90,6 +88,15 @@ Route::get('/admin/create-commodity', 'CommodityController@create_commodity');
 Route::get('/admin/update_commodity/{id}', 'CommodityController@show');
 Route::post('/admin/update_commodity/{id}', 'CommodityController@update');
 Route::get('/admin/remove_commodity/{id}', 'CommodityController@destroy');
+
+        // ---------------Delivery-------------------------
+
+Route::get('/admin/delivery', 'DeliveryController@delivery');
+Route::post('/admin/select-delivery', 'DeliveryController@select_delivery');
+Route::post('/admin/select-feeship', 'DeliveryController@select_feeship');
+Route::post('/admin/insert-delivery', 'DeliveryController@insert_delivery');
+Route::post('/admin/update-delivery', 'DeliveryController@update_delivery');
+
 
 
 

@@ -58,6 +58,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-double-right"></i></div>
                                 Banner
                             </a>
+                            <a class="nav-link" href="{{URL::to('/admin/delivery')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-truck-moving"></i></div>
+                                Vận chuyển
+                            </a>
                             <a class="nav-link" href="{{URL::to('/')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-store"></i></div>
                                 Webstie của tôi
@@ -85,7 +89,6 @@
                 </footer>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('js/scripts.js')}}"></script>
     </body>

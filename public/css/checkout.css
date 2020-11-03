@@ -68,9 +68,9 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1em;
 }
 
-h2 {
+/* h2 {
     font-size: 1.28571em;
-}
+} */
 
 h3 {
     font-size: 1em;
@@ -139,6 +139,9 @@ select {
     -moz-appearance: none;
     text-indent: 1px;
     text-overflow: '';
+}
+.sa-button-container{
+    margin-top: 10px;
 }
 
 .radio-wrapper,
@@ -275,7 +278,7 @@ select {
     display: inline-block;
     border-radius: 4px;
     font-weight: 500;
-    padding: 1.4em 1.7em;
+    padding: 1em 1.7em;
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
