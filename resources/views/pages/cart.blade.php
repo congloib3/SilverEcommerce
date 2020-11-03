@@ -79,14 +79,14 @@
             <div class="cart-row">
                 <div class="cart-group cart-group__thumbnail">
                   <div class="cart-cell cart-cell__thumbnail">
-                    <a href="{{URL::to('/products/'.$cart['product_id'])}}" title="{{$cart['product_name']}}">
+                    <a href="{{URL::to('/chi-tiet/'.$cart['product_id'])}}" title="{{$cart['product_name']}}">
                       <img src="{{asset('upload/products/'.$cart['product_id'].'/'.$cart['product_image'])}}" alt="{{$cart['product_name']}}">
                     </a>
                   </div>
                 </div>
                 <div class="cart-group cart-group__detail">
                   <div class="cart-cell cart-cell__product-name">
-                    <a href="{{URL::to('/products/'.$cart['product_id'])}}">{{$cart['product_name']}}</a>
+                    <a href="{{URL::to('/chi-tiet/'.$cart['product_id'])}}">{{$cart['product_name']}}</a>
                   </div>
                   <div class="cart-cell cart-cell__price">
                     {{number_format($cart['product_price'])}}₫

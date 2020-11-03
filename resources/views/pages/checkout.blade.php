@@ -2,6 +2,23 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/checkout.css') }}" />
 
 <div class="content">
+    <button class="order-summary-toggle order-summary-toggle-hide">
+					<div class="wrap">
+						<div class="order-summary-toggle-inner">
+							<div class="order-summary-toggle-icon-wrapper">
+								<i style="color: #338dbc" class="fas fa-shopping-cart"></i>
+							</div>
+							<div class="order-summary-toggle-text order-summary-toggle-text-show">
+								<span>Hiển thị thông tin đơn hàng</span>
+								<i class="fas fa-chevron-down"></i>
+							</div>
+							<div class="order-summary-toggle-text order-summary-toggle-text-hide">
+								<span>Ẩn thông tin đơn hàng</span>
+								<i class="fas fa-chevron-up"></i>
+							</div>
+						</div>
+					</div>
+				</button>
     <div class="wrap">
         <div class="sidebar">
             <div class="sidebar-content">
@@ -277,9 +294,41 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 <script src="{{asset('js/sweetalert.js')}}"></script>
+<script type="text/javascript">
+    var toggleShowOrderSummary = false;
+    $(document).ready(function() {
+        $('body')
+            .on('click', '.order-summary-toggle', function() {
+                toggleShowOrderSummary = !toggleShowOrderSummary;
+                if(toggleShowOrderSummary) {
+                    $('.order-summary-toggle')
+                        .removeClass('order-summary-toggle-hide')
+                        .addClass('order-summary-toggle-show');
 
+                    $('.sidebar:not(".sidebar-second") .sidebar-content .order-summary')
+                        .removeClass('order-summary-is-collapsed')
+                        .addClass('order-summary-is-expanded');
+
+                    $('.sidebar.sidebar-second .sidebar-content .order-summary')
+                        .removeClass('order-summary-is-expanded')
+                        .addClass('order-summary-is-collapsed');
+                } else {
+                    $('.order-summary-toggle')
+                        .removeClass('order-summary-toggle-show')
+                        .addClass('order-summary-toggle-hide');
+
+                    $('.sidebar:not(".sidebar-second") .sidebar-content .order-summary')
+                        .removeClass('order-summary-is-expanded')
+                        .addClass('order-summary-is-collapsed');
+
+                    $('.sidebar.sidebar-second .sidebar-content .order-summary')
+                        .removeClass('order-summary-is-collapsed')
+                        .addClass('order-summary-is-expanded');
+                }
+            });
+    });
+</script>
 <script>
-
     $('.checkout').click(function() {
             var shipping_address = $('.shipping_address').val();
                     var city = $('#city option:selected').text();
