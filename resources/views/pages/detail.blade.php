@@ -106,7 +106,7 @@
       <div class="product-tabs2">
         <ul class="tabs clearfix  display-mode__desktop">
           <li class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">
-            <a class="">Thông số sản phẩm</a>
+            <a class="">Mô tả sản phẩm</a>
           </li>
 
           <li class="tablinks" onclick="openCity(event, 'Paris')">
@@ -124,42 +124,9 @@
           style="overflow-x:hidden;"
         >
           <div class="clearfix block-element display-mode__mobile">
-            <h3>THÔNG SỐ SẢN PHẨM</h3>
-          </div>
-          <p><strong>BÔNG TAI BẠC CAO CẤP Jewelry Silver Shop. </strong></p>
-          <ul>
-            <li>Màu đá: Trắng</li>
-            <li>Đá: CZ</li>
-            <li>Kích thước:&nbsp;&nbsp;</li>
-          </ul>
-          <p><strong>&nbsp;</strong></p>
-          <p><strong>KẾT QUẢ TEST QUANG PHỔ THÀNH PHẦN BẠC</strong></p>
-          <p><strong>Analyzer Mode:</strong> Precious Metals</p>
-          <p><strong>Test Results:</strong> 59.5 sec, 0 karat</p>
-          <table width="419" class="mce-item-table">
-            <tbody>
-              <tr>
-                <td><p>EL</p></td>
-                <td><p>%</p></td>
-                <td><p>+/-</p></td>
-              </tr>
-              <tr>
-                <td><p>Ag(Bạc)</p></td>
-                <td><p>98.31</p></td>
-                <td><p>0.02</p></td>
-              </tr>
-              <tr>
-                <td><p>Zn</p></td>
-                <td><p>0.63</p></td>
-                <td><p>0.01</p></td>
-              </tr>
-              <tr>
-                <td><p>Cu</p></td>
-                <td><p>1.06</p></td>
-                <td><p>0.02</p></td>
-              </tr>
-            </tbody>
-          </table>
+            <h3>Mô tả sản phẩm</h3>
+            </div>
+            {{$product->description}}
         </div>
       </div>
 

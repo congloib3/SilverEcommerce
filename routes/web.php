@@ -29,13 +29,11 @@ Route::get('/', 'BannerController@getBanners');
 
 Route::get('/jewelry/{id}', 'CategoryController@getCommodities');
 
-Route::get('/san-pham/{id}', 'CategoryController@getProducts');
+Route::get('/san-pham/{id}', 'ProductController@getProducts');
 
 Route::get('/chi-tiet/{id}', 'ProductController@show');
 
-Route::get('/lien-he', function(){
-    return view('pages.contact');
-});
+Route::get('/tim-kiem', 'ProductController@search');
 
         // ---------------Checkout--------------------
 Route::get('/checkout', 'CheckoutController@index');
@@ -48,6 +46,20 @@ Route::get('/cart', 'CartController@index');
 Route::post('/add-cart-ajax', 'CartController@add_cart_ajax');
 Route::post('/update-cart', 'CartController@update_cart');
 Route::get('/delete-cart/{session_id}', 'CartController@delete_cart');
+
+        // ---------------Help-------------------------
+Route::get('/cach-do-size-nhan', function(){
+    return view('pages.help.size-nhan');
+});
+Route::get('/cach-do-size-day-chuyen', function(){
+    return view('pages.help.size-day-chuyen');
+});
+Route::get('/cach-do-size-lac', function(){
+    return view('pages.help.size-lac');
+});
+Route::get('/cach-giu-cho-trang-suc-bac-sang-dep', function(){
+    return view('pages.help.giu-trang-suc');
+});
 
 // -----------------------ADMIN-------------------
 
@@ -96,6 +108,12 @@ Route::post('/admin/select-delivery', 'DeliveryController@select_delivery');
 Route::post('/admin/select-feeship', 'DeliveryController@select_feeship');
 Route::post('/admin/insert-delivery', 'DeliveryController@insert_delivery');
 Route::post('/admin/update-delivery', 'DeliveryController@update_delivery');
+
+        // ---------------Order-------------------------
+
+Route::get('/admin/manage-order', 'OrderController@manage_order');
+Route::get('/admin/view-order/{order_code}', 'OrderController@view_order');
+Route::get('/admin/delete-order/{order_code}', 'OrderController@delete_order');
 
 
 

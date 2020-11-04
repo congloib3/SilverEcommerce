@@ -10,6 +10,7 @@
         <link href="{{asset('css/styles_admin.css')}}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -62,6 +63,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-truck-moving"></i></div>
                                 Vận chuyển
                             </a>
+                            <a class="nav-link" href="{{URL::to('/admin/manage-order')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-scroll"></i></div>
+                                Quản lý đơn hàng
+                            </a>
                             <a class="nav-link" href="{{URL::to('/')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-store"></i></div>
                                 Webstie của tôi
@@ -91,5 +96,6 @@
         </div>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('js/scripts.js')}}"></script>
+
     </body>
 </html>

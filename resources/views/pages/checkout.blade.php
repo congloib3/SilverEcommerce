@@ -20,6 +20,10 @@
 					</div>
 				</button>
     <div class="wrap">
+        @php
+            $total = 0;
+        @endphp
+        @if (Session::get('cart'))
         <div class="sidebar">
             <div class="sidebar-content">
                 <div class="order-summary order-summary-is-collapsed">
@@ -45,9 +49,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                        $total = 0;
-                                    @endphp
                                     @foreach(Session::get('cart') as $key => $cart)
                                         @php
                                             $subtotal = $cart['product_price']*$cart['product_quantity'];
@@ -116,11 +117,7 @@
                                         </td>
                                         <td class="total-line-name payment-due">
                                             <span class="payment-due-currency">VND</span>
-                                            <?php
-                                                $fee_ship = Session::get('fee');
-                                                $total += $fee_ship;
-                                            ?>
-                                            <span class="payment-due-price" data-checkout-payment-due-target="63000000">
+                                            <span class="payment-due-price">
                                                 {{number_format($total)}}₫
                                             </span>
                                         </td>
@@ -132,6 +129,15 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div style="padding:50px" class="order-summary order-summary-is-collapsed">
+                    Giỏ hàng đang trống, không có gì để thanh toán =)))
+                </div>
+            </div>
+        </div>
+        @endif
         <div class="main">
             <div class="main-header">
                 <a href="/" class="logo">
@@ -165,6 +171,9 @@
                                             <input placeholder="Họ và tên" required
                                                 class="field-input shipping_name" size="30" type="text" id="shipping_name"
                                                 name="shipping_name" value="" />
+                                                <input
+                                                class="shipping_order_fee"type="hidden" id="shipping_order_fee"
+                                                name="shipping_order_fee" value="" />
                                         </div>
                                     </div>
                                     <div class="field  field-two-thirds">
@@ -275,10 +284,12 @@
                         </div>
                     </div>
                     <div class="step-footer">
+                        @if (Session::get('cart'))
                             <button type="button" class="step-footer-continue-btn btn checkout">
                                 <span class="btn-content">Hoàn tất đơn hàng</span>
                                 <i class="btn-spinner icon icon-button-spinner"></i>
                             </button>
+                        @endif
                         <a class="step-footer-previous-link" href="/cart">
                             <i class="fas fa-angle-double-left"></i>
                             Giỏ hàng
@@ -328,25 +339,25 @@
             });
     });
 </script>
-<script>
+<script type="text/javascript">
     $('.checkout').click(function() {
             var shipping_address = $('.shipping_address').val();
-                    var city = $('#city option:selected').text();
-                    var province = $('#province option:selected').text();
-                    var validate_city = $('#city').val();
-                    var validate_province = $('#province').val();
-                    shipping_address = shipping_address + ', ' + province + ', ' + city;
-
-                    var shipping_name = $('.shipping_name').val();
-                    var shipping_email = $('.shipping_email').val();
-                    var shipping_phone = $('.shipping_phone').val();
-                    var shipping_notes = $('.shipping_notes').val();
-                    var shipping_method = $('input[name="toggler"]:checked').val();
-                    var _token = $('input[name="_token"]').val();
-                    if(validate_city == '' || validate_province == '' || shipping_method == '' || shipping_notes == '' || shipping_name == '' || shipping_email == '' || shipping_phone == '' || shipping_address == '' ){
-                        swal("Vui lòng nhập đầy đủ thông tin!")
-                        return false
-             }
+            var city = $('#city option:selected').text();
+            var province = $('#province option:selected').text();
+            var validate_city = $('#city').val();
+            var validate_province = $('#province').val();
+            shipping_address = shipping_address + ', ' + province + ', ' + city
+            var shipping_name = $('.shipping_name').val();
+            var shipping_email = $('.shipping_email').val();
+            var shipping_phone = $('.shipping_phone').val();
+            var shipping_notes = $('.shipping_notes').val();
+            var shipping_method = $('input[name="toggler"]:checked').val();
+            var shipping_order_fee = $('.shipping_order_fee').val();
+            var _token = $('input[name="_token"]').val();
+            if(validate_city == '' || validate_province == '' || shipping_method == '' || shipping_notes == '' || shipping_name == '' || shipping_email == '' || shipping_phone == '' || shipping_address == '' ){
+                swal("Vui lòng nhập đầy đủ thông tin!")
+                return false
+            }
             swal({
                 title: "Xác nhận đơn hàng",
                 text: "Xác nhận đặt đơn hàng!",
@@ -363,14 +374,14 @@
                     $.ajax({
                         url: '{{url('/checkout-complete-bill')}}',
                         method: 'POST',
-                        data: {shipping_method:shipping_method,shipping_notes:shipping_notes,shipping_address:shipping_address,shipping_name:shipping_name, _token:_token, shipping_email:shipping_email,shipping_phone:shipping_phone},
+                        data: {shipping_order_fee:shipping_order_fee,shipping_method:shipping_method,shipping_notes:shipping_notes,shipping_address:shipping_address,shipping_name:shipping_name, _token:_token, shipping_email:shipping_email,shipping_phone:shipping_phone},
                         success:function(){
                             swal("Đơn hàng", "Đơn hàng của bạn đã được gửi thành công!", "success");
                         }
                     })
-                    window.setTimeout(function(){
-                        location.reload();
-                    },3000)
+                    // window.setTimeout(function(){
+                    //     location.reload();
+                    // },3000)
                 }else{
                     swal("Đóng", "Đơn hàng chưa được gửi, làm ơn hoàn tất đơn hàng", "error");
                 }
@@ -401,12 +412,15 @@
             var maqh = $('.province').val();
             var matp = $('.city').val();
             var _token = $('input[name="_token"]').val();
+            var my_var = <?php echo json_encode($total) ?>;
             $.ajax({
                 url: '{{url('/checkout-calculate-fee')}}',
                 method: 'POST',
                 data: {maqh:maqh, _token:_token, matp:matp},
                 success:function(data){
                     $('.calculate_delivery').text(data+'₫');
+                    $('.payment-due-price').text((new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(Number(data)+Number(my_var))));
+                    $('.shipping_order_fee').val(data)
                 }
             })
     })

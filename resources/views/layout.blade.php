@@ -29,7 +29,7 @@
                     <!--Dropdown menu-->
                     <div class="block-element display-mode__mobile display-mode__tablet mobile-navigator-container">
                         <ul class="nav-menu-container">
-                            <li id="menu_show" class="nav-menu-item"><a href="#"><span class="far fa-bars nav-menu-item__icon"></span></a></li>
+                            <li id="menu_show" class="nav-menu-item"><a href="#"><i class="fas fa-bars"></i></a></li>
                         </ul>
                     </div>
                     <nav class="navigator-container">
@@ -64,9 +64,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-menu-item nav-menu-container__level-0">
-                                <a href="{{URL::to('/lien-he')}}">LIÊN HỆ</a>
-                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -82,10 +79,7 @@
                             </span>
                             </li>
                             <li class="user-menu-item">
-                                <a href="" class="user-menu-item__icon"><i class="fab fa-facebook"></i></a>
-                            </li>
-                            <li class="user-menu-item">
-                                <a href="" class="user-menu-item__icon"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/LsJewelry-115380577027482" class="user-menu-item__icon"><i class="fab fa-facebook"></i></a>
                             </li>
                             <li class="user-menu-item">
                                 <a href="" id="search_popup" class="user-menu-item__icon"><i class="fas fa-search"></i></a>
@@ -105,16 +99,6 @@
     </section>
 
     <footer class="footer-container" id="footer">
-        <section class="bottom-nav-container">
-            <div class="container-limitter">
-                <hr>
-                <a href="/" title="Trang chủ">TRANG CHỦ</a>
-                <a href="/" title="Sản phẩm">SẢN PHẨM</a>
-                <a href="/" title="Blog">BLOG</a>
-                <a href="/" title="Liên hệ">LIÊN HỆ</a>
-            </div>
-        </section>
-
         <section class="branding-container">
             <div class="container-limitter">
                 <div class="branding-container-inner">
@@ -132,15 +116,18 @@
         <div class="container">
             <a class="close" href="#close"></a>
             <div class="search-main">
-                <div class="search-inner">
-                    <input
-                        type="text"
-                        id="inputSearch"
-                        name="firstname"
-                        placeholder=""
-                    />
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
+                <form action="{{URL::to('/tim-kiem')}}" method="get">
+                    {{-- @csrf --}}
+                    <div class="search-inner">
+                        <input
+                            type="text"
+                            id="inputSearch"
+                            name="key"
+                            placeholder=""
+                        />
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

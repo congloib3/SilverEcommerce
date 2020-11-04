@@ -39,7 +39,7 @@ class CheckoutController extends Controller
             foreach($feeship as $key => $fee){
                 Session::put('fee', $fee->fee_feeship);
                 Session::save();
-                return number_format($fee->fee_feeship);
+                return $fee->fee_feeship;
             }
         }
     }
@@ -76,6 +76,7 @@ class CheckoutController extends Controller
                 $order_detail->product_name = $cart['product_name'];
                 $order_detail->product_price = $cart['product_price'];
                 $order_detail->product_sales_quantity = $cart['product_quantity'];
+                $order_detail->product_feeship = $data['shipping_order_fee'];
                 $order_detail->save();
             }
         }

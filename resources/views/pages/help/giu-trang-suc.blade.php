@@ -4,23 +4,7 @@
     <p style="text-align: justify;"><i>Đồ trang sức bạc luôn thu hút mọi ánh nhìn đặc biệt là đối với phái nữ. Có thể
             nói, những bộ trang sức lấp lánh không chỉ là phụ kiện mà còn là một nét đẹp trên bộ trang phục; tôn lên vẻ
             duyên dáng; thanh lịch cho các nàng. Chính vì lẽ đó mà việc giữ gìn chúng luôn trắng sáng là việc vô cùng
-            quan trọng. Vậy hãy cùng tôi tìm hiểu các <a
-                href="https://quayeuthuong.vn/cach-bao-quan-trang-suc-bac#không_bị_đen"><strong>cách bảo quản trang sức
-                    bạc</strong></a> hiệu quả để món đồ của bạn luôn đẹp long lanh như mới nhé!</i></p>
-
-    <div class="mwm-aal-container">
-        <div style="background-color: #ededed; padding: 30px;"><span
-                style="font-size: 14pt; font-family: 'times new roman', times, serif;"><b>MỤC LỤC</b></span>
-
-            <ul>
-                <li>1.Tránh để trang sức tiếp xúc với hóa chất</li>
-                <li>2. Nên cất đồ trang sức vào hộp ngay sau khi sử dụng</li>
-                <li>3. Bảo quản trong từng ngăn riêng</li>
-                <li>4. Vệ sinh đồ trang sức thường xuyên</li>
-            </ul>
-        </div>
-    </div>
-
+            quan trọng. Vậy hãy cùng tôi tìm hiểu cáccách bảo quản trang sức bạc hiệu quả để món đồ của bạn luôn đẹp long lanh như mới nhé!</i></p>
     <h2 id="tránh_hoá_chất" style="text-align: justify;">1.Tránh để trang sức tiếp xúc với hóa chất</h2>
 
     <p style="text-align: justify;">Đây là một lưu ý nhỏ đến các nàng khi đeo những đồ trang sức bằng bạc. Vì khi bạc
@@ -29,7 +13,7 @@
 
     <p style="text-align: justify;"></p>
     <div class="text-center"><img alt="ko_tiep_xuc"
-            src="https://quayeuthuong.vn/vnt_upload/news/04_2018/ko_tiep_xuc.png" style="width: 300px; height: 300px;">
+            src="{{asset('images/giu-trang-suc-1.png')}}" style="width: 300px; height: 300px;">
     </div>
     <p></p>
 
@@ -49,7 +33,7 @@
 
     <p style="text-align: justify;"></p>
     <div class="text-center"><img alt="cat_nu_trang"
-            src="https://quayeuthuong.vn/vnt_upload/news/04_2018/cat_nu_trang.jpg" style="width: 685px; height: 612px;">
+            src="{{asset('images/giu-trang-suc-2.png')}}" style="width: 685px; height: 612px;">
     </div>
     <p></p>
 
@@ -57,7 +41,7 @@
         đi ngủ hãy tháo chúng ra; vừa đem đến cho chúng ta có giấc ngủ ngon, không bị vướng víu; mà còn bảo quản trang
         sức bạc tránh va đập mạnh hay vô tình đè lên làm cong thậm chí là làm gãy chúng.</p>
 
-    <blockquote cite="https://quayeuthuong.vn/cach-bao-quan-trang-suc-bac#luôn_sáng" class="cách_bảo_quản_vòng_bạc">
+    <blockquote class="cách_bảo_quản_vòng_bạc">
         <p style="text-align: justify;">Các bạn cũng nên tháo chúng ra khi làm việc nhà; tham gia các hoạt động ngoài
             trời như chơi thể thao, trồng cây, chăm vườn, những hoạt động vận động mạnh để tránh làm xước chúng.</p>
     </blockquote>
@@ -73,7 +57,7 @@
 
     <p style="text-align: justify;"></p>
     <div class="text-center"><img alt="tung_hop_rieng"
-            src="https://quayeuthuong.vn/vnt_upload/news/04_2018/tung_hop_rieng.jpg"
+            src="{{asset('images/giu-trang-suc-3.png')}}"
             style="width: 600px; height: 600px;"></div>
     <p></p>
 
@@ -120,12 +104,11 @@
 
     <p style="text-align: justify;"></p>
     <div class="text-center"><img alt="ve_sinh_nu_trang"
-            src="https://quayeuthuong.vn/vnt_upload/news/04_2018/ve_sinh_nu_trang.jpg"
+            src="{{asset('images/giu-trang-suc-4.png')}}"
             style="width: 600px; height: 310px;"></div>
     <p></p>
 
-    <p style="text-align: justify;">Đây là <a href="https://quayeuthuong.vn/cach-lam-sang-day-chuyen-bac">cách làm sáng
-            dây chuyền bạc</a> phổ biến và quen thuộc; bạn cũng có thể thay kem đánh răng bằng nước rửa chén pha loãng.
+    <p style="text-align: justify;">Đây là cách làm sáng dây chuyền bạcphổ biến và quen thuộc; bạn cũng có thể thay kem đánh răng bằng nước rửa chén pha loãng.
         Sau khi ngâm 15 phút các bạn lấy ra; rửa sạch lại bằng nước lạnh và lau chúng bằng vải cotton mềm; nhớ là lau
         nhẹ nhàng thôi nếu như không muốn chúng vị trầy xước nhé</p>
 
@@ -133,7 +116,7 @@
         mòn và làm hỏng đồ trang sức của bạn.</p>
 
     <p style="margin-top: 0pt; margin-bottom: 0pt; margin-left: 0in; text-indent: 0in; text-align: justify;">Xem thêm
-        bài viết về <strong><a href="https://quayeuthuong.vn/day-chuyen-bach-kim-nu">dây chuyền bạch kim nữ</a></strong>
+        bài viết về dây chuyền bạch kim nữ</strong>
     </p>
 
     <p style="text-align: justify;">Trên đây là 4 <strong>cách bảo quản trang sức bạc</strong> của bạn mãi giữ được vẻ

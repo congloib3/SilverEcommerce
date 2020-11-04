@@ -44,7 +44,7 @@
       <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="policy-item policy-item__payment">
           <div class="policy-content">
-            <h3><span class="fas fa-home"></span> Liên hệ</h3>
+            <h3><i class="fas fa-phone"></i> Liên hệ</h3>
             <p>
               <strong>My Shop</strong>: Q.1
             </p>
@@ -63,21 +63,21 @@
       <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="policy-item policy-item__warranty">
           <div class="policy-content">
-            <h3><span class="fas fa-info-circle"></span> Trợ giúp</h3>
+            <h3><i class="far fa-question-circle"></i> Trợ giúp</h3>
             <p>
-              <span class="far fa-angle-double-right"></span> <a href="/pages/cach-do-size-nhan">Cách đo size nhẫn</a>
+                <i class="fas fa-angle-double-right"></i> <a href="/cach-do-size-nhan">Cách đo size nhẫn</a>
             </p>
             <p>
-              <span class="far fa-angle-double-right"></span> <a href="/pages/cach-do-size-day-chuyen">Cách do size dây chuyền</a>
+                <i class="fas fa-angle-double-right"></i> <a href="/cach-do-size-day-chuyen">Cách do size dây chuyền</a>
             </p>
             <p>
-              <span class="far fa-angle-double-right"></span> <a href="/pages/cach-do-size-lac">Cách do size lắc</a>
+                <i class="fas fa-angle-double-right"></i> <a href="/cach-do-size-lac">Cách do size lắc</a>
             </p>
             <p>
-              <span class="far fa-angle-double-right"></span> <a href="/pages/cach-do-size-vong">Cách đo size vòng tay</a>
+                <i class="fas fa-angle-double-right"></i></span> <a href="/cach-do-size-lac">Cách đo size vòng tay</a>
             </p>
             <p>
-              <span class="far fa-angle-double-right"></span> <a href="/blogs/news/cach-giu-cho-trang-suc-bac-sang-dep">Cách giữ cho trang sức bạc sáng đẹp.</a>
+                <i class="fas fa-angle-double-right"></i></span> <a href="/cach-giu-cho-trang-suc-bac-sang-dep">Cách giữ cho trang sức bạc sáng đẹp.</a>
             </p>
           </div>
           <div class="policy-background">
@@ -88,12 +88,12 @@
       <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="policy-item policy-item__shipping">
           <div class="policy-content">
-            <h3><span class="fas fa-book-open"></span> Chính sách</h3>
+            <h3><i class="fas fa-book-open"></i> Chính sách</h3>
             <p>
-              <span class="far fa-angle-double-right"></span> <a href="/pages/chinh-sach-bao-hanh">Chính sách bảo hành</a>
+                <i class="fas fa-angle-double-right"></i><a href="#">Chính sách bảo hành</a>
             </p>
             <p>
-              <span class="far fa-angle-double-right"></span> <a href="/pages/giao-hang-va-thanh-toan">Giao hàng và thanh toán</a>
+                <i class="fas fa-angle-double-right"></i><a href="#">Giao hàng và thanh toán</a>
             </p>
           </div>
           <div class="policy-background">

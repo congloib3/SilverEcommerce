@@ -1702,12 +1702,15 @@ pre code {
   padding: 0.3rem;
 }
 
-.table-bordered {
-  border: 1px solid #dee2e6;
+.table-bordered th{
+  /* border: 1px solid #dee2e6; */
+
 }
 .table-bordered th,
 .table-bordered td {
-  border: 1px solid #dee2e6;
+  /* border: 1px solid #dee2e6; */
+  /* white-space: nowrap; */
+
 }
 .table-bordered thead th,
 .table-bordered thead td {

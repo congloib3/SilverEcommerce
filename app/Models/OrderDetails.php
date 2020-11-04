@@ -14,6 +14,11 @@ class OrderDetails extends Model
         'product_name',
         'product_price'
     ];
+
     public $primaryKey = 'order_details_id';
     public $table = 'order_details';
+
+    public function product(){
+        return $this->belongsTo(\App\Models\Product::class, 'product_id');
+    }
 }

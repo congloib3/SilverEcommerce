@@ -15,13 +15,17 @@
       <div class="col-sm-6 col-xs-12">
         <ol class="breadcrumb">
           <li><a href="{{URL::to('/')}}'">Trang chủ /</a></li>
-          <li class="active">&nbsp;{{$category->name}}</li>
+        <li class="active">&nbsp;Kết quả tìm kiếm</li>
         </ol>
       </div>
     </div>
   </div>
 </section>
+<div class="container-limitter">
+	Kết quả tiềm kiếm cho từ khóa: <b>{{$key}}</b>
+</div>
 <section class="products-container products-container__collection">
+  @if($products)
   <div class="container-limitter">
     <div class="row">
       @foreach($products as $product)
@@ -79,5 +83,6 @@
           </div>
     </div>
   </div>
+  @endif
 </section>
 @endsection

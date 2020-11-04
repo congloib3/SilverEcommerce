@@ -128,16 +128,6 @@ class CategoryController extends Controller
         return view('admin.categories.update_category')->with('category', $category)->with('commodities', $commodities);
     }
 
-    public function getProducts($id)
-    {
-        //
-        $products = Product::where('category_id', $id)->orderBy('id', 'desc')->paginate(8);
-
-        // $products;
-
-        return view('pages.product')->with('products', $products);
-    }
-
     /**
      * Show the form for editing the specified resource.
      *

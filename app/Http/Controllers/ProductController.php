@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
@@ -23,6 +22,29 @@ class ProductController extends Controller
         $products = Product::with('category')->orderBy('id', 'desc')->paginate(8);
 
         return view('admin.products.products')->with('products', $products);
+    }
+    public function getProducts($id)
+    {
+        //
+        $products = Product::where('category_id', $id)->orderBy('id', 'desc')->paginate(8);
+
+        $category = Category::findOrFail($id);
+
+
+        return view('pages.product')->with('products', $products)->with('category', $category);
+    }
+    public function search(){
+        $key = Input::get('key');
+
+        // dd($key);
+        if($key!=""){
+            $products = Product::where('name', 'like', "%$key%")
+                                ->orWhere('description', 'like', "%$key%")
+                                ->take(30)
+                                ->paginate(8);
+            $products->appends(['key' => $key]);
+        }
+        return view('pages.search')->with('products', $products)->with('key', $key);
     }
 
     /**

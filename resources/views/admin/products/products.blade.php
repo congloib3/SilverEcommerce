@@ -16,7 +16,6 @@
                     <th>Danh mục</th>
                     <th>Tên sản phẩm</th>
                     <th>Giá</th>
-                    <th>Mô tả</th>
                     <th>Số lượng</th>
                     <th>Hình ảnh</th>
                     <th>Hiển thị</th>
@@ -29,7 +28,6 @@
                     <td width="5%">{{$product->category->name}}</td>
                     <td width="10%">{{$product->name}}</td>
                     <td>{{$product->price}}</td>
-                    <td width="20%">{{$product->description}}</td>
                     <td>{{$product->quantity}}</td>
                     <td><img src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}" width="100px" alt=""></td>
                     <td>
