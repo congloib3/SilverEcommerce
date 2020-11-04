@@ -14,7 +14,7 @@ class CreateTblTinhthanhphoTable extends Migration
     public function up()
     {
         Schema::create('tbl_tinhthanhpho', function (Blueprint $table) {
-            $table->increments('matp')->nullable();
+            $table->increments('matp');
             $table->string('name_city')->nullable();
             $table->string('type')->nullable();
         });

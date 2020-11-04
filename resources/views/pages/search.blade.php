@@ -22,7 +22,7 @@
   </div>
 </section>
 <div class="container-limitter">
-	Kết quả tiềm kiếm cho từ khóa: <b>{{$key}}</b>
+	Kết quả tìm kiếm cho từ khóa: <b>{{$key}}</b>
 </div>
 <section class="products-container products-container__collection">
   @if($products)

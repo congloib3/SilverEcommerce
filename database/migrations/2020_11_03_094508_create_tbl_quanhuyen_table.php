@@ -14,7 +14,7 @@ class CreateTblQuanhuyenTable extends Migration
     public function up()
     {
         Schema::create('tbl_quanhuyen', function (Blueprint $table) {
-            $table->increments('maqh')->nullable();
+            $table->increments('maqh');
             $table->string('name_quanhuyen')->nullable();
             $table->string('type')->nullable();
             $table->integer('matp')->nullable();
