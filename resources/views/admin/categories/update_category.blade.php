@@ -18,7 +18,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputFirstName">Tên Danh Mục</label>
-                                    <input required class="form-control py-4" value="{{ $category->name}}" id="category_name" name="name" type="text" placeholder="Tên Danh Mục" />
+                                    <input required class="form-control py-4" value="{{ $category->name}}" id="name" name="name" type="text" placeholder="Tên Danh Mục" />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -31,7 +31,7 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="small mb-1" for="inputFirstName">Tên Danh Mục</label>
+                                    <label class="small mb-1" for="inputFirstName">Loại sản phẩm</label>
                                     <select required="required" class="form-control" name="commodity_id">
                                         @foreach ($commodities as $key => $value)
                                             <option value="{{ $value->id }}" {{ $category->commodity_id == $value->id ? "selected" : '' }}>{{ $value->name }}</option>

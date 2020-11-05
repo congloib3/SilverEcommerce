@@ -35,13 +35,12 @@
             <div class="product-media">
               <div class="product-thumbnail">
                 <a
-                  href="{{URL::to('/chi-tiet/'.$product->id)}}"
+                  href="{{URL::to('/chi-tiet/'.$product->slug)}}"
                   title="{{$product->name}}"
                 >
                 </a>
-
                 <a
-                  href="{{URL::to('/chi-tiet/'.$product->id)}}"
+                  href="{{URL::to('/chi-tiet/'.$product->slug)}}"
                   title="{{$product->name}}"
                 >
                   <img
@@ -55,7 +54,7 @@
             <div class="product-info">
               <h2 class="product-name">
                 <a
-                  href="{{URL::to('/chi-tiet/'.$product->id)}}"
+                  href="{{URL::to('/chi-tiet/'.$product->slug)}}"
                   title="{{$product->name}}"
               >{{$product->name}}</a
                 >
@@ -68,7 +67,7 @@
               </div>
               <a
                 class="ts-viewdetail"
-                href="{{URL::to('/chi-tiet/'.$product->id)}}"
+                href="{{URL::to('/chi-tiet/'.$product->slug)}}"
                 ><span class="icon icon-arrows-slim-right"></span
               ></a>
             </div>

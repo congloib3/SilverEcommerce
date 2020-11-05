@@ -41,16 +41,6 @@ class CategoryController extends Controller
 
         return view('pages.commodity')->with('categories', $categories)->with('products', $products);
     }
-    public function getWatchs()
-    {
-        //
-        $categories = Category::where('commodity_id', 2)->get();
-
-        $products = Product::where('status', 1)->inRandomOrder()->take(8)->get();
-
-        return view('pages.watch')->with('categories', $categories)->with('products', $products);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -97,6 +87,7 @@ class CategoryController extends Controller
                 $input['image'] = $fileName;
 
             }
+
 
             $category = $category_tmp->findOrFail($id);
 

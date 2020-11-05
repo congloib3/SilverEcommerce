@@ -29,7 +29,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Tên sản phẩm</label>
-                                    <input required class="form-control py-4" id="product_name" name="name" type="text" placeholder="Tên sản phẩm" />
+                                    <input required class="form-control" id="product_name" name="name" type="text" placeholder="Tên sản phẩm" />
                                 </div>
                             </div>
                         </div>
@@ -37,13 +37,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputFirstName">Giá</label>
-                                    <input required class="form-control py-4" id="product_price" name="price" type="text" placeholder="Giá" />
+                                    <input required class="form-control" id="product_price" name="price" type="text" placeholder="Giá" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Mô tả</label>
-                                    <input class="form-control py-4" id="product_description" name="description" type="text" placeholder="Mô tả" />
+                                    <input class="form-control" id="product_description" name="description" type="text" placeholder="Mô tả" />
                                 </div>
                             </div>
                         </div>
@@ -51,15 +51,23 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputFirstName">Số lượng</label>
-                                    <input class="form-control py-4" id="product_quantity" name="quantity" type="text" placeholder="Số lượng" />
+                                    <input class="form-control" id="product_quantity" name="quantity" type="text" placeholder="Số lượng" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Hình Ảnh</label>
-                                    <input required class="py-4" id="category_img_path" name="image" type="file"/>
+                                    <input required id="category_img_path" name="image" type="file"/>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputLastName">Slug</label>
+                                    <input class="form-control" id="slug" name="slug" type="text" placeholder="Slug" />
+                                </div>
+                        </div>
                         </div>
                         <div class="form-group mt-4 mb-0"><input type="submit" class="btn btn-info btn-block" value="Lưu"></div>
                     </form>

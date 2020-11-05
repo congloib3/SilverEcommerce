@@ -34,9 +34,6 @@ class CommodityController extends Controller
     {
         //
     }
-    public function create_commodity(){
-        return view('admin.commodities.create_commodity');
-    }
     /**
      * Store a newly created resource in storage.
      *

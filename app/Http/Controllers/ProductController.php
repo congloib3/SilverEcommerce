@@ -115,10 +115,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         //
-        $product = Product::where('id', $id)->with('thumbnails', 'category')->first();
+        $product = Product::where('slug', $slug)->with('thumbnails', 'category')->first();
 
         $related_products = Product::where('category_id', $product->category_id)->whereNotIn('id', [$product->id])->inRandomOrder()->take(10)->get();
 

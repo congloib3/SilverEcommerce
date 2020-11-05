@@ -83,6 +83,7 @@
                     value="1"
                   />
                 <input class="cart_product_id_{{$product->id}}" type="hidden" value="{{$product->id}}">
+                <input class="cart_product_slug_{{$product->id}}" type="hidden" value="{{$product->slug}}">
                 <input class="cart_product_name_{{$product->id}}" type="hidden" value="{{$product->name}}">
                 <input class="cart_product_image_{{$product->id}}" type="hidden" value="{{$product->image}}">
                 <input class="cart_product_price_{{$product->id}}" type="hidden" value="{{$product->price}}">
@@ -343,17 +344,17 @@
                               <div class="product-media">
                                 <div class="product-thumbnail">
                                   <a
-                                    href="{{URL::to('/chi-tiet/'.$related_product->id)}}"
+                                    href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
                                     title="{{$related_product->name}}"
                                   >
                                   </a>
 
                                   <a
-                                    href="{{URL::to('/chi-tiet/'.$related_product->id)}}"
+                                    href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
                                     title="{{$related_product->name}}"
                                   >
                                     <img
-                                      class="/chi-tiet/{{$related_product->id}}"
+                                      class="/chi-tiet/{{$related_product->slug}}"
                                       src="{{asset('upload/products/'.$related_product->id.'/'.$related_product->image)}}"
                                       alt=""
                                     />
@@ -363,7 +364,7 @@
                               <div class="product-info">
                                 <h2 class="product-name">
                                   <a
-                                    href="{{URL::to('/chi-tiet/'.$related_product->id)}}"
+                                    href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
                                     title="{{$related_product->name}}"
                                 >{{$related_product->name}}</a
                                   >
@@ -377,7 +378,7 @@
                                 </div>
                                 <a
                                   class="ts-viewdetail"
-                                  href="{{URL::to('/chi-tiet/'.$related_product->id)}}"
+                                  href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
                                   ><span class="icon icon-arrows-slim-right"></span
                                 ></a>
                               </div>
@@ -414,6 +415,7 @@
         $('#add-to-cart').click(function(){
             var id = $(this).data('id')
             var cart_product_id = $('.cart_product_id_' + id).val()
+            var cart_product_slug = $('.cart_product_slug_' + id).val()
             var cart_product_name = $('.cart_product_name_' + id).val()
             var cart_product_image = $('.cart_product_image_' + id).val()
             var cart_product_price = $('.cart_product_price_' + id).val()
@@ -423,7 +425,7 @@
             $.ajax({
                 url: '{{url('/add-cart-ajax')}}',
                 method: 'POST',
-                data:{cart_product_id:cart_product_id,cart_product_name:cart_product_name,cart_product_image:cart_product_image,cart_product_price:cart_product_price,cart_product_quantity:cart_product_quantity, _token:_token},
+                data:{cart_product_slug:cart_product_slug,cart_product_id:cart_product_id,cart_product_name:cart_product_name,cart_product_image:cart_product_image,cart_product_price:cart_product_price,cart_product_quantity:cart_product_quantity, _token:_token},
                 success:function(data){
                     swal({
                         title: "Đã thêm sản phẩm vào giỏ hàng",

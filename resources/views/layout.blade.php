@@ -45,7 +45,7 @@
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
                                             @foreach($silvers as $silver)
                                             <li class="nav-menu-item">
-                                                <a href="{{URL::to('/san-pham/'.$silver->id)}}">{{$silver->name}}</a>
+                                                <a href="{{URL::to('/san-pham/'.$silver->id.'-'.Str::slug($silver->name))}}">{{$silver->name}}</a>
                                             </li>
                                             @endforeach
                                         </ul>
@@ -57,7 +57,7 @@
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
                                             @foreach($watchs as $watch)
                                             <li class="nav-menu-item">
-                                                <a href="{{URL::to('/san-pham/'.$watch->id)}}">{{$watch->name}}</a>
+                                                <a href="{{URL::to('/san-pham/'.$watch->id.'-'.Str::slug($watch->name))}}">{{$watch->name}}</a>
                                             </li>
                                             @endforeach
                                         </ul>

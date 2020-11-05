@@ -2,10 +2,11 @@
 @section('content')
 <div class="collections-container collections-container__index">
     <div id="carousel_jewelry" class="carousel slide" data-ride="carousel">
+
         <ol class="carousel-indicators">
-          <li data-target="#carousel_jewelry" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel_jewelry" data-slide-to="1"></li>
-          <li data-target="#carousel_jewelry" data-slide-to="2"></li>
+            @foreach (range(0, count($banners)-1) as $i)
+                <li data-target="#carousel_jewelry" data-slide-to="{{$i}}" class="{{ $loop->first ? 'active' : '' }}"></li>
+            @endforeach
         </ol>
         <div class="carousel-inner">
           @foreach ($banners as $banner)
@@ -28,7 +29,7 @@
             @foreach($commodities as $commodity)
             <div class="col-sm-6 col-xs-12">
                 <div class="collection-item collection-item__index">
-                    <a href="{{URL::to('/jewelry/'.$commodity->id)}}">
+                    <a href="{{URL::to('/jewelry/'.$commodity->id.'-'.Str::slug($commodity->name))}}">
                     <img src="{{asset('upload/commodities/'.$commodity->id.'/'.$commodity->image)}}" alt="{{$commodity->name}}">
                     </a>
                 </div>

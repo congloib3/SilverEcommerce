@@ -58,6 +58,7 @@ class CartController extends Controller
                 $cart[] = array(
                     'session_id' => $session_id,
                     'product_id' => $data['cart_product_id'],
+                    'product_slug' => $data['cart_product_slug'],
                     'product_name' => $data['cart_product_name'],
                     'product_price' => $data['cart_product_price'],
                     'product_quantity' => $data['cart_product_quantity'],
@@ -69,6 +70,7 @@ class CartController extends Controller
            $cart[] = array(
                'session_id' => $session_id,
                'product_id' => $data['cart_product_id'],
+               'product_slug' => $data['cart_product_slug'],
                'product_name' => $data['cart_product_name'],
                'product_price' => $data['cart_product_price'],
                'product_quantity' => $data['cart_product_quantity'],

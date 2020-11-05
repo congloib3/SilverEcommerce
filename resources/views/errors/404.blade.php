@@ -3,10 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>404 bear | UKIE WEB</title>
-    <meta name="author" content="ukieweb" />
-    <meta name="keywords" content="404 page, worker, css3, template, html5 template, ukieweb" />
-    <meta name="description" content="404 - Page Template" />
+    <title>404 bear | WEB</title>
+    <meta name="author" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!-- Libs CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -191,7 +189,7 @@
             margin: -100px 0 0 -100px;
             width: 200px;
             height: 200px;
-            background-image: url("../img/ajax-loader.gif");
+            background-image: url("https://envato.ukiedev.com/pack404/bear/assets/img/ajax-loader.gif");
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -294,7 +292,7 @@
                 <h1>Oops!</h1>
                 <h2>Where are we?</h2>
                 <p>The page you are looking for was moved, removed, renamed or <br />might never existed.</p>
-                <a href="#" class="btn">Go Home</a>
+                <a href="/" class="btn">Go Home</a>
             </div>
             <div class="bear">
                 <div class="zzz"></div>
@@ -313,9 +311,7 @@
     <script>
 
         $(window).on("load", function (e) {
-
             "use strict";
-
             $(".loader").delay(200).fadeOut();
             $(".animationload").delay(200).fadeOut("fast");
 

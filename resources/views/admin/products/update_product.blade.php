@@ -28,7 +28,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Tên sản phẩm</label>
-                                    <input class="form-control py-4" value="{{ $product->name}}" id="product_name" name="name" type="text" placeholder="Tên Danh Mục" />
+                                    <input class="form-control" value="{{ $product->name}}" id="name" name="name" type="text" placeholder="Tên Danh Mục" />
                                 </div>
                             </div>
                         </div>
@@ -36,13 +36,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputFirstName">Giá</label>
-                                    <input class="form-control py-4" value="{{ $product->price}}" id="product_price" name="price" type="text" placeholder="Tên Danh Mục" />
+                                    <input class="form-control" value="{{ $product->price}}" id="product_price" name="price" type="text" placeholder="Tên Danh Mục" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Mô tả</label>
-                                    <input class="form-control py-4" value="{{ $product->description}}" id="product_description" name="description" type="text" placeholder="Tên Danh Mục" />
+                                    <input class="form-control" value="{{ $product->description}}" id="product_description" name="description" type="text" placeholder="Tên Danh Mục" />
                                 </div>
                             </div>
                         </div>
@@ -50,22 +50,22 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputFirstName">Số lượng</label>
-                                    <input class="form-control py-4" value="{{ $product->quantity}}" id="product_quantity" name="quantity" type="text" placeholder="Tên Danh Mục" />
+                                    <input class="form-control" value="{{ $product->quantity}}" id="product_quantity" name="quantity" type="text" placeholder="Tên Danh Mục" />
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">Hình Ảnh</label>
-                                    <input class="py-4" id="category_img_path" name="image" type="file" value="{{$product->image}}"/>
-                                </div>
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputLastName">Slug</label>
+                                        <input class="form-control" value="{{ $product->slug}}" id="slug" name="slug" type="text" placeholder="Slug" />
+                                    </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="radio"  id="option1" name="status" value="0"  {{ ($product->status=="0")? "checked" : "" }} >Không hiển thị</label>
-                                    <input type="radio" id="option2" name="status" value="1" {{ ($product->status=="1")? "checked" : "" }} >Hiển thị</label>
-                                </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputLastName">Hình Ảnh</label>
+                                <input class="" id="category_img_path" name="image" type="file" value="{{$product->image}}"/>
+                            </div>
                             </div>
                         </div>
                         <div class="form-group mt-4 mb-0"><input type="submit" class="btn btn-info btn-block" value="Lưu"></div>
@@ -75,4 +75,5 @@
         </div>
     </div>
 </div>
+<script src="{{asset('js/slug.js')}}"></script>
 @endsection

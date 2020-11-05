@@ -16,22 +16,16 @@
 Route::get('admin/login', ['as' => 'getLogin', 'uses' => 'AdminController@getLogin']);
 Route::post('admin/login', ['as' => 'postLogin', 'uses' => 'AdminController@postLogin']);
 Route::get('admin/logout', ['as' => 'getLogout', 'uses' => 'AdminController@getLogout']);
-Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
-	Route::get('/dashboard', function() {
-		return redirect('/admin/products');
-	});
-});
-
 
 // ---------------------------FRONT---------------------
 Route::get('/slug/{product}', 'BannerController@testSlug');
 Route::get('/', 'BannerController@getBanners');
 
-Route::get('/jewelry/{id}', 'CategoryController@getCommodities');
+Route::get('/jewelry/{id}-{slug}', 'CategoryController@getCommodities');
 
-Route::get('/san-pham/{id}', 'ProductController@getProducts');
+Route::get('/san-pham/{id}-{slug}', 'ProductController@getProducts');
 
-Route::get('/chi-tiet/{id}', 'ProductController@show');
+Route::get('/chi-tiet/{slug}', 'ProductController@show');
 
 Route::get('/tim-kiem', 'ProductController@search');
 
@@ -62,58 +56,62 @@ Route::get('/cach-giu-cho-trang-suc-bac-sang-dep', function(){
 });
 
 // -----------------------ADMIN-------------------
-
-        // -------------Categories--------------
-Route::resource('/admin/categories', 'CategoryController');
-Route::get('/admin/create-category', 'CategoryController@create_category');
-Route::get('/admin/update_categories/{id}', 'CategoryController@show');
-Route::post('/admin/update_categories/{id}', 'CategoryController@update');
-Route::get('/admin/remove_categories/{id}', 'CategoryController@destroy');
-
-
-        // -------------Products--------------
-Route::resource('/admin/products', 'ProductController');
-Route::get('/admin/create-product', 'ProductController@create_product');
-Route::get('/admin/update_product/{id}', 'ProductController@detail');
-Route::post('/admin/update_product/{id}', 'ProductController@update');
-Route::get('/admin/remove_product/{id}', 'ProductController@destroy');
+Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin'], function() {
+	Route::get('/dashboard', function() {
+		return redirect('/admin/products');
+    });
+            // -------------Categories--------------
+    Route::resource('/categories', 'CategoryController');
+    Route::get('/create-category', 'CategoryController@create_category');
+    Route::get('/update_categories/{id}', 'CategoryController@show');
+    Route::post('/update_categories/{id}', 'CategoryController@update');
+    Route::get('/remove_categories/{id}', 'CategoryController@destroy');
 
 
-        // -------------Banners--------------
-Route::resource('/admin/banners', 'BannerController');
-Route::get('/admin/create-banner', 'BannerController@create_banner');
-Route::get('/admin/update_banner/{id}', 'BannerController@show');
-Route::post('/admin/update_banner/{id}', 'BannerController@update');
-Route::get('/admin/remove_banner/{id}', 'BannerController@destroy');
+            // -------------Products--------------
+    Route::resource('/products', 'ProductController');
+    Route::get('/create-product', 'ProductController@create_product');
+    Route::get('/update_product/{id}', 'ProductController@detail');
+    Route::post('/update_product/{id}', 'ProductController@update');
+    Route::get('/remove_product/{id}', 'ProductController@destroy');
 
-        // -------------Thumbnails--------------
-Route::get('admin/thumbnails/{id}', 'ThumbnailController@showThumbnails');
-Route::get('/admin/create-thumbnail/{id}', 'ThumbnailController@create_thumbnail');
-Route::post('/admin/store-thumbnail', 'ThumbnailController@store');
-Route::get('/admin/update_thumbnail/{id}', 'ThumbnailController@show');
-Route::post('/admin/update_thumbnail/{id}', 'ThumbnailController@update');
-Route::get('/admin/remove_thumbnail/{id}', 'ThumbnailController@destroy');
 
-        // -------------Commodity--------------
-Route::get('/admin/commodities', 'CommodityController@index');
-Route::get('/admin/create-commodity', 'CommodityController@create_commodity');
-Route::get('/admin/update_commodity/{id}', 'CommodityController@show');
-Route::post('/admin/update_commodity/{id}', 'CommodityController@update');
-Route::get('/admin/remove_commodity/{id}', 'CommodityController@destroy');
+            // -------------Banners--------------
+    Route::resource('/banners', 'BannerController');
+    Route::get('/create-banner', 'BannerController@create_banner');
+    Route::get('/update_banner/{id}', 'BannerController@show');
+    Route::post('/update_banner/{id}', 'BannerController@update');
+    Route::get('/remove_banner/{id}', 'BannerController@destroy');
 
-        // ---------------Delivery-------------------------
+            // -------------Thumbnails--------------
+    Route::get('/thumbnails/{id}', 'ThumbnailController@showThumbnails');
+    Route::get('/create-thumbnail/{id}', 'ThumbnailController@create_thumbnail');
+    Route::post('/store-thumbnail', 'ThumbnailController@store');
+    Route::get('/update_thumbnail/{id}', 'ThumbnailController@show');
+    Route::post('/update_thumbnail/{id}', 'ThumbnailController@update');
+    Route::get('/remove_thumbnail/{id}', 'ThumbnailController@destroy');
 
-Route::get('/admin/delivery', 'DeliveryController@delivery');
-Route::post('/admin/select-delivery', 'DeliveryController@select_delivery');
-Route::post('/admin/select-feeship', 'DeliveryController@select_feeship');
-Route::post('/admin/insert-delivery', 'DeliveryController@insert_delivery');
-Route::post('/admin/update-delivery', 'DeliveryController@update_delivery');
+            // -------------Commodity--------------
+    Route::get('/commodities', 'CommodityController@index');
+    Route::get('/update_commodity/{id}', 'CommodityController@show');
+    Route::post('/update_commodity/{id}', 'CommodityController@update');
+    Route::get('/remove_commodity/{id}', 'CommodityController@destroy');
 
-        // ---------------Order-------------------------
+            // ---------------Delivery-------------------------
 
-Route::get('/admin/manage-order', 'OrderController@manage_order');
-Route::get('/admin/view-order/{order_code}', 'OrderController@view_order');
-Route::get('/admin/delete-order/{order_code}', 'OrderController@delete_order');
+    Route::get('/delivery', 'DeliveryController@delivery');
+    Route::post('/select-delivery', 'DeliveryController@select_delivery');
+    Route::post('/select-feeship', 'DeliveryController@select_feeship');
+    Route::post('/insert-delivery', 'DeliveryController@insert_delivery');
+    Route::post('/update-delivery', 'DeliveryController@update_delivery');
+
+            // ---------------Order-------------------------
+
+    Route::get('/manage-order', 'OrderController@manage_order');
+    Route::get('/view-order/{order_code}', 'OrderController@view_order');
+    Route::get('/delete-order/{order_code}', 'OrderController@delete_order');
+
+});
 
 
 
