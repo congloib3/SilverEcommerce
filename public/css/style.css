@@ -246,6 +246,9 @@ a {
     }
 }
 @media (max-width: 575.98px) {
+    .main-logo a img{
+        width: 100%;
+    }
     .header-container {
         padding: 0;
     }

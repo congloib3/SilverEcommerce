@@ -9,7 +9,7 @@
 
     <title>Thiên Quyên - Trang Sức Bạc</title>
 
-    <link rel="icon" href="https://www.simmonsfinejewelry.com/wp-content/uploads/2019/02/fav.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{asset('images/favicon.png')}}" type="image/gif" sizes="16x16">
     <link rel="canonical" href="{{ url()->current() }}" />
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
@@ -44,7 +44,7 @@
                                 <ul class="nav-menu-container__sub nav-menu-container__level-1">
                                     <li class="nav-menu-item active nav-menu-item__has-sub">
 
-                                        <a href="#">Bạc&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
+                                        <a href="{{URL::to('/jewelry/1-trang-suc-bac')}}">Bạc&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
 
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
                                             @foreach($silvers as $silver)
@@ -55,9 +55,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-menu-item active nav-menu-item__has-sub">
-
-                                        <a href="#">Đồng Hồ&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
-
+                                        <a href="{{URL::to('/jewelry/2-dong-ho')}}">Đồng Hồ&nbsp;<span class="fas fa-plus nav-menu-item__expand"></span></a>
                                         <ul class="nav-menu-container__sub nav-menu-container__level-2">
                                             @foreach($watchs as $watch)
                                             <li class="nav-menu-item">
@@ -83,7 +81,7 @@
                             </span>
                             </li>
                             <li class="user-menu-item">
-                                <a href="https://www.facebook.com/LsJewelry-115380577027482" class="user-menu-item__icon"><i class="fab fa-facebook"></i></a>
+                                <a target="_blank" href="https://www.facebook.com/LsJewelry-115380577027482" class="user-menu-item__icon"><i class="fab fa-facebook"></i></a>
                             </li>
                             <li class="user-menu-item">
                                 <a href="" id="search_popup" class="user-menu-item__icon"><i class="fas fa-search"></i></a>

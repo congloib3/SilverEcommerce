@@ -3,9 +3,9 @@
 <section class="banner-container">
   <div class="container-limitter">
     <div class="main-logo">
-      <a href="{{URL::to('/')}}'" title="My Shop - Trang suc bac">
-        <h1>Jewelry</h1>
-      </a>
+        <a href="{{URL::to('/')}}" title="My Shop - Trang suc bac">
+            <img src="{{asset('images/thienquyen.png')}}" alt="Thiên Quyên Logo">
+        </a>
     </div>
   </div>
 </section>

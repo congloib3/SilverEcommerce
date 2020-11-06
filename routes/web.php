@@ -103,6 +103,7 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin'], function(
     Route::post('/select-feeship', 'DeliveryController@select_feeship');
     Route::post('/insert-delivery', 'DeliveryController@insert_delivery');
     Route::post('/update-delivery', 'DeliveryController@update_delivery');
+    Route::get('/delete-delivery/{id}', 'DeliveryController@delete_delivery');
 
             // ---------------Order-------------------------
 

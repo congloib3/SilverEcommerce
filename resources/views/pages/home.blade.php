@@ -1,9 +1,15 @@
 @extends('layout')
 @section('content')
 <div class="collections-container collections-container__index">
-    <div class="text-center">
-        <img src="{{asset('images/thienquyen.png')}}" alt="Thiên Quyên Logo">
-    </div>
+    <section class="banner-container">
+        <div class="container-limitter">
+          <div class="main-logo">
+            <a href="{{URL::to('/')}}" title="Thiên Quyên - Trang sức bạc">
+                  <img src="{{asset('images/thienquyen.png')}}" alt="Thiên Quyên Logo">
+            </a>
+          </div>
+        </div>
+      </section>
     <div id="carousel_jewelry" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             @foreach (range(0, count($banners)-1) as $i)
@@ -49,7 +55,7 @@
           <div class="policy-content">
             <h3><i class="fas fa-phone"></i> Liên hệ</h3>
             <p>
-              <strong>My Shop</strong>: Q.1
+              <strong>Thiên Quyên Jewelry</strong>: Q.1
             </p>
             <p>
               <strong>Hotline</strong>: <a href="tel:+842873096968">037.7777.7777</a>
@@ -59,7 +65,7 @@
             </p>
           </div>
           <div class="policy-background">
-            <img alt="" src="//theme.hstatic.net/1000103292/1000578902/14/images.transparent-background.png?v=565">
+            <img alt="" src="{{asset('images/background.png')}}">
           </div>
         </div>
       </div>
@@ -84,7 +90,7 @@
             </p>
           </div>
           <div class="policy-background">
-            <img alt="" src="//theme.hstatic.net/1000103292/1000578902/14/images.transparent-background.png?v=565">
+            <img alt="" src="{{asset('images/background.png')}}">
           </div>
         </div>
       </div>
@@ -100,7 +106,7 @@
             </p>
           </div>
           <div class="policy-background">
-            <img alt="" src="//theme.hstatic.net/1000103292/1000578902/14/images.transparent-background.png?v=565">
+            <img alt="" src="{{asset('images/background.png')}}">
           </div>
         </div>
       </div>

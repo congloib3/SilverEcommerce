@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Feeship;
 use App\Models\Province;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class DeliveryController extends Controller
 {
@@ -24,6 +25,7 @@ class DeliveryController extends Controller
                         <th>Tên thành phố</th>
                         <th>Tên quận huyện</th>
                         <th>Phí ship</th>
+                        <th></th>
                     </tr>
                 </thread>
                 <tbody>';
@@ -33,6 +35,9 @@ class DeliveryController extends Controller
                         <td>'.$value->city->name_city.'</td>
                         <td>'.$value->province->name_quanhuyen.'</td>
                         <td contenteditable data-feeship_id="'.$value->fee_id.'" class="fee_feeship_edit">'.number_format($value->fee_feeship).'</td>
+                        <td>
+                            <a class="btn btn-danger" href="'.URL::to("admin/delete-delivery/".$value->fee_id).'">Xóa</a>
+                        </td>
                     </tr>
                     ';
                 }
@@ -72,5 +77,12 @@ class DeliveryController extends Controller
         $fee_ship->fee_feeship = $fee_value;
 
         $fee_ship->save();
+    }
+    public function delete_delivery($id){
+        //
+        $fee_ship = Feeship::findOrFail($id);
+        $fee_ship->delete();
+
+        return redirect('/admin/delivery');
     }
 }
