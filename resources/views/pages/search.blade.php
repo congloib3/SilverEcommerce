@@ -46,7 +46,7 @@
                   <img
                     class="/chi-tiet/{{$product->id}}"
                     src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
-                    alt=""
+                    alt="{{$product->name}}"
                   />
                 </a>
               </div>
@@ -61,7 +61,7 @@
               </h2>
               <div class="product-price">
                 <span class="price">
-                  {{number_format($product->price)}}
+                  {{number_format($product->price,0,',','.')}}
                 </span>
                 {{-- <span class="compare-price"><del>(380,000₫)</del></span> --}}
               </div>

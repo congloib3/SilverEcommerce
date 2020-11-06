@@ -3,8 +3,8 @@
 <section class="banner-container">
     <div class="container-limitter">
         <div class="main-logo">
-            <a href="{{URL::to('/')}}'" title="My Shop - Trang suc bac">
-                <h1>Jewelry</h1>
+            <a href="{{URL::to('/')}}" title="Thiên Quyên - Trang sức bạc">
+                <img src="{{asset('images/thienquyen.png')}}" alt="Thiên Quyên Logo">
             </a>
         </div>
     </div>
@@ -31,7 +31,7 @@
           <img
             class="big_img"
             src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
-            alt=""
+            alt="{{$product->name}}"
           />
         </div>
         <div class="nav">
@@ -39,7 +39,7 @@
           <img
             class="small_img"
             src="{{asset('upload/thumbnails/'.$thumbnail->id.'/'.$thumbnail->img_path)}}"
-            alt=""
+            alt="{{'thumbnail-'.$thumbnail->id}}"
           />
           @endforeach
         </div>
@@ -48,7 +48,7 @@
         <div class="product-detail">
           <h3 class="product-name">
             <a
-              href="{{URL::to('chi-tiet/'.$product->id)}}"
+              href="{{URL::to('chi-tiet/'.$product->slug)}}"
               title="{{$product->name}}"
             >
               {{$product->name}}</a
@@ -59,12 +59,8 @@
           </div>
           <div class="product-block product-price">
             <span class="price" id="price" data-variant-price="19800000"
-              >{{number_format($product->price).'₫'}}</span
+              >{{number_format($product->price,0,',','.').'₫'}}</span
             >
-            {{-- <span class="compare-price">
-              <del id="compare-price">220,000₫</del>
-              <span class="discount-percent" id="discount-percent">(-10%)</span>
-            </span> --}}
           </div>
           <div class="product-form">
             <form
@@ -124,10 +120,10 @@
           id="tab-description"
           style="overflow-x:hidden;"
         >
-          <div class="clearfix block-element display-mode__mobile">
-            <h3>Mô tả sản phẩm</h3>
-            </div>
-            {{$product->description}}
+            <p>{{$product->category->name}}</p>
+            <p>
+                {{$product->description}}
+            </p>
         </div>
       </div>
 
@@ -332,74 +328,71 @@
     <h2>Sản phẩm cùng danh mục</h2>
     <div class="container">
         <div class="carousel slide multi-item-carousel" data-ride="carousel" id="theCarousel">
-          <div class="carousel-inner row w-100 mx-auto">
-            @foreach ($related_products as $related_product)
-            <div class="carousel-item {{ $loop->first ? 'active' : '' }} col-md-4">
-                <section class="products-container products-container__collection">
-                    <div class="container-limitter">
-                      <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                          <div class="product-item product-item__grid">
-                            <div >
-                              <div class="product-media">
-                                <div class="product-thumbnail">
-                                  <a
-                                    href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
-                                    title="{{$related_product->name}}"
-                                  >
-                                  </a>
-
-                                  <a
-                                    href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
-                                    title="{{$related_product->name}}"
-                                  >
-                                    <img
-                                      class="/chi-tiet/{{$related_product->slug}}"
-                                      src="{{asset('upload/products/'.$related_product->id.'/'.$related_product->image)}}"
-                                      alt=""
-                                    />
-                                  </a>
+            <div class="carousel-inner row w-100 mx-auto">
+              @foreach ($related_products as $related_product)
+              <div class="carousel-item {{ $loop->first ? 'active' : '' }} col-md-4">
+                  <section class="products-container products-container__collection">
+                      <div class="container-limitter">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="product-item product-item__grid">
+                              <div >
+                                <div class="product-media">
+                                  <div class="product-thumbnail">
+                                    <a
+                                      href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
+                                      title="{{$related_product->name}}"
+                                    >
+                                    </a>
+                                    <a
+                                      href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
+                                      title="{{$related_product->name}}"
+                                    >
+                                      <img
+                                        class="/chi-tiet/{{$related_product->slug}}"
+                                        src="{{asset('upload/products/'.$related_product->id.'/'.$related_product->image)}}"
+                                        alt="{{$related_product->name}}"
+                                      />
+                                    </a>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="product-info">
-                                <h2 class="product-name">
+                                <div class="product-info">
+                                  <h2 class="product-name">
+                                    <a
+                                      href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
+                                      title="{{$related_product->name}}"
+                                  >{{$related_product->name}}</a
+                                    >
+                                  </h2>
+                                  <div class="product-price">
+                                    <span class="price">
+                                      {{number_format($related_product->price,0,',','.')}}
+                                    </span>
+                                  </div>
                                   <a
+                                    class="ts-viewdetail"
                                     href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
-                                    title="{{$related_product->name}}"
-                                >{{$related_product->name}}</a
-                                  >
-                                </h2>
-                                <div class="product-price">
-                                  <span class="price">
-                                    {{number_format($related_product->price)}}
-                                  </span>
-
-                                  <span class="compare-price"><del>(380,000₫)</del></span>
+                                    ><span class="icon icon-arrows-slim-right"></span
+                                  ></a>
                                 </div>
-                                <a
-                                  class="ts-viewdetail"
-                                  href="{{URL::to('/chi-tiet/'.$related_product->slug)}}"
-                                  ><span class="icon icon-arrows-slim-right"></span
-                                ></a>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </section>
+                    </section>
+              </div>
+              @endforeach
             </div>
-            @endforeach
+            <a class="carousel-control-prev" href="#theCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#theCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-          <a class="carousel-control-prev" href="#theCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#theCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
       </div>
   </div>
   <script type="text/javascript">

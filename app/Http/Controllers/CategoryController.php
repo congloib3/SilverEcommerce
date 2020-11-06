@@ -37,7 +37,7 @@ class CategoryController extends Controller
         //
         $categories = Category::where('commodity_id', $id)->get();
 
-        $products = Product::where('status', 1)->inRandomOrder()->take(8)->get();
+        $products = Product::inRandomOrder()->take(8)->get();
 
         return view('pages.commodity')->with('categories', $categories)->with('products', $products);
     }

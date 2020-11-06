@@ -18,8 +18,7 @@ Route::post('admin/login', ['as' => 'postLogin', 'uses' => 'AdminController@post
 Route::get('admin/logout', ['as' => 'getLogout', 'uses' => 'AdminController@getLogout']);
 
 // ---------------------------FRONT---------------------
-Route::get('/slug/{product}', 'BannerController@testSlug');
-Route::get('/', 'BannerController@getBanners');
+Route::get('/','BannerController@getBanners');
 
 Route::get('/jewelry/{id}-{slug}', 'CategoryController@getCommodities');
 
@@ -109,6 +108,7 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin'], function(
 
     Route::get('/manage-order', 'OrderController@manage_order');
     Route::get('/view-order/{order_code}', 'OrderController@view_order');
+    Route::post('/update-order-status/{id}', 'OrderController@update_order_status');
     Route::get('/delete-order/{order_code}', 'OrderController@delete_order');
 
 });

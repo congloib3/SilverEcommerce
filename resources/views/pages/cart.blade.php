@@ -4,8 +4,8 @@
 <section class="banner-container">
     <div class="container-limitter">
         <div class="main-logo">
-            <a href="{{URL::to('/')}}'" title="My Shop - Trang suc bac">
-                <h1>Jewelry</h1>
+            <a href="{{URL::to('/')}}" title="My Shop - Trang suc bac">
+                <img src="{{asset('images/thienquyen.png')}}" alt="Thiên Quyên Logo">
             </a>
         </div>
     </div>
@@ -15,12 +15,9 @@
     <div class="row">
       <div class="col-sm-6 col-xs-12">
         <ol class="breadcrumb">
-          <li><a href="{{URL::to('/')}}'">Trang chủ /</a></li>
+          <li><a href="{{URL::to('/')}}">Trang chủ /</a></li>
             <li class="active">&nbsp;Giỏ hàng</li>
         </ol>
-      </div>
-      <div class="col-sm-6 col-xs-12 pull-right text-right">
-
       </div>
     </div>
   </div>
@@ -35,7 +32,7 @@
 <section class="cart-container" id="cart">
   <div class="container-limitter">
   @if(!Session::get('cart'))
-    Giỏ hàng trống
+    <h3>Giỏ hàng trống</h3>
   @else
   <form class="cart-form" action="{{url('/update-cart')}}" method="post">
     {{csrf_field()}}
@@ -89,7 +86,7 @@
                     <a href="{{URL::to('/chi-tiet/'.$cart['product_slug'])}}">{{$cart['product_name']}}</a>
                   </div>
                   <div class="cart-cell cart-cell__price">
-                    {{number_format($cart['product_price'])}}₫
+                    {{number_format($cart['product_price'],0,',','.')}}₫
                   </div>
                   <div class="cart-cell cart-cell__quantity">
                     <div class="">
@@ -98,7 +95,7 @@
                   </div>
                   <div class="cart-cell cart-cell__sub-total">
                     <span class="price">
-                      {{number_format($subtotal)}}₫
+                      {{number_format($subtotal,0,',','.')}}₫
                     </span>
                       <span class="discount">
                       </span>
@@ -116,7 +113,7 @@
           <div class="cart-row">
             <div class="cart-cell cart-cell__total">
               <span>Tổng cộng:</span>
-              <span class="price">{{number_format($total)}}₫</span>
+              <span class="price">{{number_format($total,0,',','.')}}₫</span>
             </div>
           </div>
           <div class="cart-row no-border">

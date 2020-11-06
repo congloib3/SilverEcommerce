@@ -3,8 +3,8 @@
 <section class="banner-container">
   <div class="container-limitter">
     <div class="main-logo">
-      <a href="{{URL::to('/')}}'" title="My Shop - Trang suc bac">
-        <h1>Jewelry</h1>
+      <a href="{{URL::to('/')}}" title="Thiên Quyên - Trang sức bạc">
+            <img src="{{asset('images/thienquyen.png')}}" alt="Thiên Quyên Logo">
       </a>
     </div>
   </div>
@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-sm-6 col-xs-12">
         <ol class="breadcrumb">
-          <li><a href="{{URL::to('/')}}'">Trang chủ /</a></li>
+          <li><a href="{{URL::to('/')}}">Trang chủ /</a></li>
           <li class="active">&nbsp;{{$category->name}}</li>
         </ol>
       </div>
@@ -43,7 +43,7 @@
                   <img
                     class="/chi-tiet/{{$product->slug}}"
                     src="{{asset('upload/products/'.$product->id.'/'.$product->image)}}"
-                    alt=""
+                    alt="{{$product->name}}"
                   />
                 </a>
               </div>
@@ -58,7 +58,7 @@
               </h2>
               <div class="product-price">
                 <span class="price">
-                  {{number_format($product->price)}}
+                  {{number_format($product->price,0,',','.')}}
                 </span>
                 {{-- <span class="compare-price"><del>(380,000₫)</del></span> --}}
               </div>

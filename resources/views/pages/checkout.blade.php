@@ -69,7 +69,7 @@
                                                 <span class="product-description-name order-summary-emphasis">{{$cart['product_name']}}</span>
                                             </td>
                                             <td class="product-price">
-                                                <span class="order-summary-emphasis">{{number_format($subtotal)}}₫</span>
+                                                <span class="order-summary-emphasis">{{number_format($subtotal,0,',','.')}}₫</span>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -96,7 +96,7 @@
                                         </td>
                                         <td class="total-line-price">
                                             <span class="order-summary-emphasis">
-                                                {{number_format($total)}}₫
+                                                {{number_format($total,0,',','.')}}₫
                                             </span>
                                         </td>
                                     </tr>
@@ -118,7 +118,7 @@
                                         <td class="total-line-name payment-due">
                                             <span class="payment-due-currency">VND</span>
                                             <span class="payment-due-price">
-                                                {{number_format($total)}}₫
+                                                {{number_format($total,0,',','.')}}₫
                                             </span>
                                         </td>
                                     </tr>
@@ -140,8 +140,8 @@
         @endif
         <div class="main">
             <div class="main-header">
-                <a href="/" class="logo">
-                    <h1 class="logo-text">Jewelry</h1>
+                <a href="{{URL::to('/')}}" class="logo">
+                    <img src="{{asset('images/thienquyen.png')}}" alt="Thiên Quyên Logo">
                 </a>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
@@ -302,7 +302,7 @@
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 <script src="{{asset('js/sweetalert.js')}}"></script>
 <script type="text/javascript">

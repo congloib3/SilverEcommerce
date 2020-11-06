@@ -4,21 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silver</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="description" content="Trang Sức Thiên Quyên, chuyên cung cấp trang sức bạc 952 cao cấp nhập khẩu từ nhiều nước khác nhau." />
+
+    <title>Thiên Quyên - Trang Sức Bạc</title>
+
     <link rel="icon" href="https://www.simmonsfinejewelry.com/wp-content/uploads/2019/02/fav.png" type="image/gif" sizes="16x16">
+    <link rel="canonical" href="{{ url()->current() }}" />
 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/general.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/collection.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/theme.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert.css') }}">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel='stylesheet' id='flatsome-googlefonts-css'  href='//fonts.googleapis.com/css?family=Roboto+Condensed%3Aregular%2C700%2Cregular%2C700%2Cregular&#038;display=swap'>
 
-
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/fontawesome.min.js')}}"></script>
 </head>
 
 <body>
@@ -104,7 +108,7 @@
                 <div class="branding-container-inner">
                     <div class="row">
                         <div class="col-xs-12">
-                            Copyright © LS 2020
+                            Copyright © Thiên Quyên Jewelry 2020
                         </div>
                     </div>
                 </div>

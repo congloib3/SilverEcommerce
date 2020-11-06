@@ -1,8 +1,10 @@
 @extends('layout')
 @section('content')
 <div class="collections-container collections-container__index">
+    <div class="text-center">
+        <img src="{{asset('images/thienquyen.png')}}" alt="Thiên Quyên Logo">
+    </div>
     <div id="carousel_jewelry" class="carousel slide" data-ride="carousel">
-
         <ol class="carousel-indicators">
             @foreach (range(0, count($banners)-1) as $i)
                 <li data-target="#carousel_jewelry" data-slide-to="{{$i}}" class="{{ $loop->first ? 'active' : '' }}"></li>

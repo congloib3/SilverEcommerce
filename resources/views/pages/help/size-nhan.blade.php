@@ -77,14 +77,6 @@
                     width: 100%;
                 }
             </style>
-            <script>
-                $(function () {
-                    $("#in-page-iframe").css({
-                        height: ($("#in-page-iframe").width() * 402) / 715
-                    });
-                });
-            </script>
-            <p></p>
         </div>
     </div>
 </div>

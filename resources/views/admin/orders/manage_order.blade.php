@@ -5,7 +5,7 @@
         <?php
             $message = Session::get('message_dashboard');
             if($message) {
-                echo '<span class="text-danger">'.$message.'</span>';
+                echo '<span class="text-success">'.$message.'</span>';
                 Session::put('message_dashboard', null);
             }
          ?>
@@ -32,9 +32,11 @@
                     <td>{{$order->order_code}}</td>
                     <td>
                         @if($order->order_status==1)
-                            Đơn hàng mới
-                        @else
-                            Đã xử lý
+                            Đơn hàng mới (chưa giao)
+                        @elseif(($order->order_status==2))
+                            Đang giao
+                        @elseif(($order->order_status==3))
+                            Đã giao
                         @endif
                     </td>
                     <td>
